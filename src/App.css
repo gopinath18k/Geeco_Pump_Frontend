@@ -63,3 +63,22 @@ ul, ol {
 }
 
 
+@media (max-width: 991px) {
+ 
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    padding-top: 60px !important; 
+    box-sizing: border-box;
+  }
+
+  
+  #root, .App {
+    padding-top: 0; 
+  }
+}
+
+
+
