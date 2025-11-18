@@ -115,3 +115,93 @@
 .RegisterPump__check-Btn:hover {
   background: #334155;
 }
+
+
+/* =====================================
+   TABLET VIEW  (max-width: 1024px)
+===================================== */
+@media (max-width: 1024px) {
+
+  .RegisterPump__container {
+    padding: 30px;
+    margin: 20px;
+  }
+
+  .RegisterPump__Heading {
+    font-size: 28px;
+  }
+
+  .RegisterPump__SubHeading {
+    font-size: 20px;
+  }
+
+  .RegisterPump__form-row {
+    grid-template-columns: 1fr 1fr; /* Still 2 columns */
+    gap: 16px;
+  }
+
+  .RegisterPump__input,
+  .RegisterPump__select {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .RegisterPump__submit-Btn {
+    width: 60%;
+    font-size: 15px;
+  }
+}
+
+
+/* =====================================
+   MOBILE VIEW  (max-width: 600px)
+===================================== */
+@media (max-width: 600px) {
+
+  .RegisterPump__container {
+    padding: 25px 18px;
+    margin: 15px;
+    border-radius: 16px;
+  }
+
+  .RegisterPump__Heading {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .RegisterPump__SubHeading {
+    font-size: 18px;
+  }
+
+  .RegisterPump__form-grid {
+    padding: 0;
+    gap: 18px;
+  }
+
+  .RegisterPump__form-row {
+    grid-template-columns: 1fr; /* 💥 1 column for mobile */
+    gap: 14px;
+  }
+
+  .RegisterPump__label {
+    font-size: 13px;
+  }
+
+  .RegisterPump__input,
+  .RegisterPump__select {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .RegisterPump__submit-Btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  .RegisterPump__check-Btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+}

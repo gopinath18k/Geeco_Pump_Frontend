@@ -4,6 +4,12 @@
   margin-top: 0px;
   position: relative;
 }
+.card_link_wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 
 .card_slider_containers {
   width: 100%;

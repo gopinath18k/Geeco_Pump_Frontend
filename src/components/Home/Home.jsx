@@ -58,7 +58,7 @@ export const Home = () => {
       
  {/* ............................................. Section Three ............................................. */}
 
-      <div className="container-fluid home-section-three-container">
+      <div className="home-section-three-container">
         <div className="home-section-three-inner-container">
           <h2>Sectors we serve</h2>
              <Cardslider/>

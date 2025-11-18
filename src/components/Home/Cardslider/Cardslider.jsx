@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,11 +15,11 @@ import Commercial from "../../../assets/com.webp";
 import Residential from "../../../assets/res.webp";
 
 const multiData = [
-  { img: Agriculture, title: "Agriculture", viewmore: "View More" },
-  { img: Industrial, title: "Industrial", viewmore: "View More" },
-  { img: Commercial, title: "Commercial", viewmore: "View More" },
-  { img: Residential, title: "Residential", viewmore: "View More" },
-  { img: Industrial, title: "Industrial", viewmore: "View More" },
+  { img: Agriculture, title: "Agriculture", viewmore: "View More" ,link: "/agriculture-pump-categories"},
+  { img: Industrial, title: "Industrial", viewmore: "View More" ,link: "/industrial-pump-categories"},
+  { img: Commercial, title: "Commercial", viewmore: "View More" ,link: "/commercial-pump-categories"},
+  { img: Residential, title: "Residential", viewmore: "View More" ,link: "/domestic-pump-categories"},
+  { img: Industrial, title: "Industrial", viewmore: "View More" ,link: "/industrial-pump-categories"},
 ];
 
 const Cardslider = () => {
@@ -71,13 +72,16 @@ const Cardslider = () => {
 
 const Card = ({ item }) => {
   return (
-    <div className="card_slider_inner_containers">
-      <img className="multi__image" src={item.img} alt={item.title} />
-      <div className="slider_carousel_container">
-        <p className="slider_heading">{item.title}</p>
-        <p className="viewmore_heading">{item.viewmore}</p>
+    <Link to={item.link} className="card_link_wrapper" onClick={() => window.scrollTo(0, 0)}>
+      <div className="card_slider_inner_containers">
+        <img className="multi__image" src={item.img} alt={item.title} />
+
+        <div className="slider_carousel_container">
+          <p className="slider_heading">{item.title}</p>
+          <p className="viewmore_heading">{item.viewmore}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

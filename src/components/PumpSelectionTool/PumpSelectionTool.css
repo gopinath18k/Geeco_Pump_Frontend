@@ -95,4 +95,37 @@ h1, h2, h3 {
   border-radius: 20px;
 }
 
+/* ============================
+   TABLET ( max-width: 1024px )
+============================ */
+@media (max-width: 1024px) {
+  .progress-wrapper {
+  right: 20px;   
+  top: 75%;
+  z-index: 1000;
+}
 
+.progress-vertical-container {
+  width: 6px; 
+  height: 60vh; 
+}
+}
+
+/* ============================
+   MOBILE ( max-width: 600px )
+============================ */
+@media (max-width: 600px) {
+  .progress-wrapper {
+    right: 9px;   
+    top: 65%;
+    z-index: 1000;
+  }
+
+  .progress-vertical-container {
+    width: 6px; 
+    height: 50vh; 
+  }
+  .Pump_selection_Complete{
+    margin-top: 30px;
+  }
+}

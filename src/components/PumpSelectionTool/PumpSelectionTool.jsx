@@ -654,7 +654,7 @@ const handleAnswer = (questionId, answer, nextSectionId) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2>Selection Complete!</h2>
+          <h2 className="Pump_selection_Complete">Selection Complete!</h2>
           {filteredPumps.length === 0 ? (
             <p>No pumps match your criteria. Try adjusting your selections.</p>
           ) : (
