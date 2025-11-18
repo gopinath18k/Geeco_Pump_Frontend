@@ -75,7 +75,7 @@ h1, h2, h3 {
 .progress-wrapper {
   position: absolute;
   right: 20px;   /* Place on right */
-  top: 70%;
+  top: 60%;
   transform: translateY(-50%);
 }
 

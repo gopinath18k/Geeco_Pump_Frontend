@@ -21,7 +21,7 @@ export const About = () => {
             </div>
             <div className="about_ourstory_img_containers">
                 <div className="about_image_container_one">
-                    <div className="about_first_content_container">
+                    <div className="about_first_content_container  order-2 order-md-1">
                         <p className="about_first_content">1988<br/>geeco pumps started</p>
                     </div>
                     <div className="about_image_container">
@@ -44,7 +44,7 @@ export const About = () => {
                     <img src={line} alt="geeco story line" className='about_line'/>
                 </div>
                 <div className="about_image_container_one">
-                    <div className="about_first_content_container">
+                    <div className="about_first_content_container  order-2 order-md-1">
                         <p className="about_first_content">1988<br/>geeco pumps started</p>
                     </div>
                     <div className="about_image_container">
@@ -67,7 +67,7 @@ export const About = () => {
                     <img src={line} alt="geeco story line" className='about_line'/>
                 </div>
                 <div className="about_image_container_one">
-                    <div className="about_first_content_container">
+                    <div className="about_first_content_container  order-2 order-md-1">
                         <p className="about_first_content">1988<br/>geeco pumps started</p>
                     </div>
                     <div className="about_image_container">

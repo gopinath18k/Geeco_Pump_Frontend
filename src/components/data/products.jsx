@@ -1,4 +1,4 @@
-import Pump from "../../assets/Agriculture/Sub-V4-pump.webp"
+import Pump from "../../assets/Agriculture/Pump image Needed.webp"
 
 
 export const pumps = [
@@ -94,7 +94,79 @@ export const pumps = [
     description: 'Compact submersible pump designed for openwell applications.',
   },
 
-  // Borewell -> Surface Pumps
+  // Domestic ---> Borewell -> Surface Pumps
+  {
+    id: 'V3 SLEEK 0618',
+    name: 'V3 SLEEK 0618',
+    application: 'Domestic',
+    waterSource: 'Borewell',
+    installLocation: 'Surface Borewell',
+    phase: '1 Phase',
+    depthMin: 1, depthMax: 59,
+    headMin: 1, headMax: 59,
+    lpmMin: 10, lpmMax: 20,
+    imageUrl: Pump,
+  },
+  {
+    id: 'V3 SLEEK 0618',
+    name: 'V3 SLEEK 0618',
+    application: 'Domestic',
+    waterSource: 'Borewell',
+    installLocation: 'Surface Borewell',
+    phase: '1 Phase',
+    depthMin: 1, depthMax: 54,
+    headMin: 1, headMax: 54,
+    lpmMin: 20, lpmMax: 30,
+    imageUrl: Pump,
+  },
+  {
+    id: 'V3 SLEEK 0618',
+    name: 'V3 SLEEK 0618',
+    application: 'Domestic',
+    waterSource: 'Borewell',
+    installLocation: 'Surface Borewell',
+    phase: '1 Phase',
+    depthMin: 1, depthMax: 43,
+    headMin: 1, headMax: 43,
+    lpmMin: 30, lpmMax: 40,
+    imageUrl: Pump,
+  },
+  {
+    id: 'V3 SLEEK 0618',
+    name: 'V3 SLEEK 0618',
+    application: 'Domestic',
+    waterSource: 'Borewell',
+    installLocation: 'Surface Borewell',
+    phase: '1 Phase',
+    depthMin: 1, depthMax: 30,
+    headMin: 1, headMax: 30,
+    lpmMin: 40, lpmMax: 50,
+    imageUrl: Pump,
+  },
+  {
+    id: 'V3 SLEEK 0618',
+    name: 'V3 SLEEK 0618',
+    application: 'Domestic',
+    waterSource: 'Borewell',
+    installLocation: 'Surface Borewell',
+    phase: '1 Phase',
+    depthMin: 1, depthMax: 16,
+    headMin: 1, headMax: 16,
+    lpmMin: 50, lpmMax: 60,
+    imageUrl: Pump,
+  },
+  {
+    id: 'V3 SLEEK 0625',
+    name: 'V3 SLEEK 0625',
+    application: 'Domestic',
+    waterSource: 'Borewell',
+    installLocation: 'Surface Borewell',
+    phase: '1 Phase',
+    depthMin: 1, depthMax: 16,
+    headMin: 1, headMax: 16,
+    lpmMin: 50, lpmMax: 60,
+    imageUrl: Pump,
+  },
   {
     id: 'DOM_BW_S_001',
     name: 'Taro BoreMaster 1 Phase Surface',
@@ -114,14 +186,29 @@ export const pumps = [
     application: 'domestic',
     waterSource: 'borewell',
     installLocation: 'surface_borewell',
-    phase: '3phase_bw_sur', 
+    phase: '3 Phase', 
     depthMin: 20, depthMax: 100,
     headMin: 40, headMax: 120,
     lpmMin: 100, lpmMax: 350,
     imageUrl: Pump,
     description: 'Three phase surface borewell pump for deeper borewells and higher flow.',
   },
-  // Borewell -> Submersible Pumps
+
+  // Domestic --> Borewell -> Submersible Pumps //
+
+   {
+    id: 'V3 SLEEK 0618',
+    name: 'V3 SLEEK 0618',
+    application: 'Domestic',
+    waterSource: 'Borewell',
+    installLocation: 'Submersible Borewell',
+    phase: '1 Phase',
+    borewellSize: '1 inch',
+    depthMin: 1, depthMax: 59,
+    headMin: 1, headMax: 59,
+    lpmMin: 10, lpmMax: 20,
+    imageUrl: Pump,
+  },
   {
     id: 'DOM_BW_SUB_001',
     name: 'Taro Submersible Bore 4" 1 Phase',

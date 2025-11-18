@@ -4,7 +4,7 @@ export const pumpSelectionQuestions = [
     id: 'applicationType',
     question: 'What do you need the pump for?',
     options: [
-      { id: 'domestic', label: 'Domestic Use (Home, Garden, Water Tanks.)', nextSection: 'domesticUse' },
+      { id: 'Domestic', label: 'Domestic Use (Home, Garden, Water Tanks.)', nextSection: 'domesticUse' },
       { id: 'agricultural', label: 'Agricultural Use (Irrigation, Open Well, Borewell.)', nextSection: 'agriculturalUse' },
       { id: 'commercial', label: 'Commercial/Industrial Use (Utility Water Pumping, Car Wash, Pressure Boosting.)', nextSection: 'commercialUse' },
       { id: 'wastewater', label: 'Wastewater and Drainage Applications.', nextSection: 'wastewaterUse' },
@@ -17,7 +17,7 @@ export const pumpSelectionQuestions = [
     options: [
       { id: 'sumpTank', label: 'Sump/Tank', nextSection: 'domesticUse_sumpTank' },
       { id: 'openwell', label: 'Openwell (Well)', nextSection: 'domesticUse_openwell' },
-      { id: 'borewell', label: 'Borewell', nextSection: 'domesticUse_borewell' },
+      { id: 'Borewell', label: 'Borewell', nextSection: 'domesticUse_borewell' },
       { id: 'pressure boosting application', label: 'Pressure Boosting Application', nextSection: 'domesticUse_pressure boosting application' },
     ],
   },
@@ -170,7 +170,7 @@ export const pumpSelectionQuestions = [
 
 // --- BoreWell Section --- //
 
-// --- Borewell installation location ---
+// --- Borewell installation location --- //
 
 
 {
@@ -178,20 +178,20 @@ export const pumpSelectionQuestions = [
   question: 'Where do you want to install the pump?',
   section: 'domesticUse_borewell',
   options: [
-    { id: 'surface_borewell', label: 'Surface', nextSection: 'domesticUse_borewell_surface' },
-    { id: 'Submersible_Borewell', label: 'Inside the borewell (Submersible)', nextSection: 'domesticUse_borewell_submersible' },
+    { id: 'Surface Borewell', label: 'Surface', nextSection: 'domesticUse_borewell_surface' },
+    { id: 'Submersible Borewell', label: 'Inside the borewell (Submersible)', nextSection: 'domesticUse_borewell_submersible' },
   ],
 },
 
-// --- Surface Borewell Questions ---
+// --- Surface Borewell Questions --- //
 
 {
   id: 'domesticUse_borewell_surface_phase',
   question: 'Do you need a 1 phase or 3 phase design? (Single phase recommended for Household and Domestic applications)',
   section: 'domesticUse_borewell_surface',
   options: [
-    { id: '1phase_bw_sur', label: '1 Phase', nextSection: 'domesticUse_borewell_surface_1phase' },
-    { id: '3phase_bw_sur', label: '3 Phase', nextSection: 'domesticUse_borewell_surface_3phase' },
+    { id: '1 Phase', label: '1 Phase', nextSection: 'domesticUse_borewell_surface_1phase' },
+    { id: '3 Phase', label: '3 Phase', nextSection: 'domesticUse_borewell_surface_3phase' },
   ],
 },
 
@@ -204,7 +204,7 @@ export const pumpSelectionQuestions = [
   type: 'input',
   unit: 'meters',
   min: 1,
-  max: 50,
+  max: 450,
 },
 
 {
@@ -214,7 +214,7 @@ export const pumpSelectionQuestions = [
   type: 'input',
   unit: 'meters',
   min: 1,
-  max: 50,
+  max: 450,
 },
 
 {
@@ -224,7 +224,7 @@ export const pumpSelectionQuestions = [
   type: 'input',
   unit: 'LPM',
   min: 1,
-  max: 450,
+  max: 1000,
 },
 
 // --- Surface Borewell Three Phase Questions ---
@@ -266,8 +266,8 @@ export const pumpSelectionQuestions = [
   question: 'Do you need a  1phase or a 3phase design? (Single phase recommended for Household and domestic applications)',
   section: 'domesticUse_borewell_submersible',
   options: [
-    { id: '1phase_b_sub', label: '1 Phase', nextSection: 'domesticUse_borewell_submersible_1phase' },
-    { id: '3phase_b_sub', label: '3 Phase', nextSection: 'domesticUse_borewell_submersible_3phase' },
+    { id: '1 Phase', label: '1 Phase', nextSection: 'domesticUse_borewell_submersible_1phase' },
+    { id: '3 Phase', label: '3 Phase', nextSection: 'domesticUse_borewell_submersible_3phase' },
   ],
 },
 
@@ -278,9 +278,9 @@ export const pumpSelectionQuestions = [
     question: 'What is the size of your bore well?',
     section: 'domesticUse_borewell_submersible_1phase',
     options: [
-      { id: '3inch_b_sub', label: '3"' },
-      { id: '4inch_b_sub', label: '4"' },
-      { id: '6inch_b_sub', label: '6"' },
+      { id: '3 inch', label: '3"' },
+      { id: '4 inch', label: '4"' },
+      { id: '6 inch', label: '6"' },
     ],
   },
 

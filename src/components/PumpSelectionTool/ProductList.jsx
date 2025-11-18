@@ -12,12 +12,12 @@ function ProductList({ pumps }) {
   }
 
   return (
-    <div className="pumps-grid">
+    <div className={`pumps-grid ${pumps.length > 3 ? 'carousel' : ''}`}>
       {pumps.map(pump => (
         <div key={pump.id} className="pump-cards" >
           <img src={pump.imageUrl} alt={pump.name} />
           <h3>{pump.name}</h3>
-          <p>{pump.description}</p>
+          {/* <p>{pump.description}</p> */}
           <ul className="specs-list">
             <li><strong>Application:</strong> <span>{pump.application}</span></li>
             <li><strong>Water Source:</strong> <span>{pump.waterSource}</span></li>
