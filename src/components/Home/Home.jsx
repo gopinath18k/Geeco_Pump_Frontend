@@ -10,6 +10,7 @@ import Video_Banner from "../../assets/video-thumbline.webp";
 import ourteam from "../../assets/our team.webp";
 import TestimonialCardslider from "./Testimonial/Testimonial";
 import { About } from "./About/About";
+// import UncontrolledExample from "./Landing_Banner/Landing_Banner";
 
 
   
@@ -46,7 +47,7 @@ export const Home = () => {
   
 {/* ..................................................... Section Two ..................................................... */}
 
-
+      {/* <UncontrolledExample/> */}
       <div className="container-fluid home-section-two-container">
         <div className="home-section-two-inner-container">
           <h2>Industrial Pumps <span style={{color: "red"}}>Manufacturers</span></h2>
@@ -55,6 +56,7 @@ export const Home = () => {
           <p>With a strong presence in international markets, we continuously strive to provide exceptional solutions that empower businesses and industries to thrive. At Geeco Pumps, we don’t just build pumps—we build trust and long-lasting partnerships.</p>
         </div>
       </div>
+
       
  {/* ............................................. Section Three ............................................. */}
 
