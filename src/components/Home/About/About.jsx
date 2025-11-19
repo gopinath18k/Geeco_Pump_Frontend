@@ -22,7 +22,7 @@ export const About = () => {
             <div className="about_ourstory_img_containers">
                 <div className="about_image_container_one">
                     <div className="about_first_content_container  order-2 order-md-1">
-                        <p className="about_first_content">1988<br/>geeco pumps started</p>
+                        <p className="about_first_content">1988<br/>Geeco Pumps Started</p>
                     </div>
                     <div className="about_image_container">
                         <img src={storyimage1} alt="geeco story" className='about_first_image'/>
