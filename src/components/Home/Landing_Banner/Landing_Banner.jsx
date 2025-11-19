@@ -1,63 +1,36 @@
-import Carousel from 'react-bootstrap/Carousel';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Landing_Banner_1 from "../../../assets/agri.webp";
-import Landing_Banner_2 from "../../../assets/com.webp";
-import Landing_Banner_3 from "../../../assets/ind.webp";
-import Landing_Banner_4 from "../../../assets/res.webp";
+import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Landing_Banner.css";
 
-function UncontrolledExample() {
+import Landing_Banner_1 from "../../../assets/Geeco_Landing_Banners.webp";
+import Landing_Banner_2 from "../../../assets/Geeco_Landing_Banners_Two.webp";
+import Landing_Banner_3 from "../../../assets/Geeco_Landing_Banners_Three.webp";
+
+function LandingBanner() {
   return (
-    <Carousel>
-
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={Landing_Banner_1}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={Landing_Banner_2}
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={Landing_Banner_3}
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={Landing_Banner_4}
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-
+    <Carousel
+      className="landing-banner"
+      fade
+      interval={5000}
+      controls={true}
+      indicators={true}
+    >
+      {[  
+        { img: Landing_Banner_2, title: "Agriculture Pumps", desc: "Efficient Pumping Solutions for Modern Farming." },
+        { img: Landing_Banner_1, title: "Commercial Pumps", desc: "Reliable Pumping Solutions for Commercial Infrastructure" },
+        { img: Landing_Banner_3, title: "Industrial Pumps", desc: "High-Performance Pumps for Heavy-Duty Industrial Applications" },
+        
+      ].map((slide, index) => (
+        <Carousel.Item key={index}>
+          <img className="banner-img" src={slide.img} alt={slide.title} />
+          <Carousel.Caption>
+            <h2 className="banner-title">{slide.title}</h2>
+            <p className="banner-desc">{slide.desc}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
     </Carousel>
   );
 }
 
-export default UncontrolledExample;
+export default LandingBanner;

@@ -10,7 +10,7 @@ import Video_Banner from "../../assets/video-thumbline.webp";
 import ourteam from "../../assets/our team.webp";
 import TestimonialCardslider from "./Testimonial/Testimonial";
 import { About } from "./About/About";
-// import UncontrolledExample from "./Landing_Banner/Landing_Banner";
+import UncontrolledExample from "./Landing_Banner/Landing_Banner";
 
 
   
@@ -32,7 +32,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container-fluid home-landing-container">
+      {/* <div className="container-fluid home-landing-container">
         <div className="home-landing-inner-container">
           <div className="row">
             <div className="col-6 home-banner-first-col">
@@ -43,11 +43,11 @@ export const Home = () => {
             <div className="col-6 col home-banner-second-col"><img className='pumpbanner' src={Pumpbanner} alt="" srcset="" /></div>
           </div>
         </div>
-      </div>
+      </div> */}
   
 {/* ..................................................... Section Two ..................................................... */}
 
-      {/* <UncontrolledExample/> */}
+      <UncontrolledExample/>
       <div className="container-fluid home-section-two-container">
         <div className="home-section-two-inner-container">
           <h2>Industrial Pumps <span style={{color: "red"}}>Manufacturers</span></h2>
