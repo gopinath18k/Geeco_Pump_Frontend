@@ -12,7 +12,7 @@ export const About = () => {
     <div className='About_Main_Conatiner'>
         <div className="about_main_content">
             <p className="about_paragraph_content">
-                A borewell submersible pump is a specialized water pump designed to operate while fully submerged in water. It is primarily used for extracting water from deep borewells, wells, or underground reservoirs where the water table is significantly below the surface. These pumps are efficient, compact, and built to withstand harsh conditions, often made of corrosion-resistant materials like stainless steel.. It is primarily used for extracting water from deep borewells, wells, or underground reservoirs where the water table is significantly below the surface.
+                A Borewell submersible pump is a specialized water pump designed to operate while fully submerged in water. It is primarily used for extracting water from deep borewells, wells, or underground reservoirs where the water table is significantly below the surface. These pumps are efficient, compact, and built to withstand harsh conditions, often made of corrosion-resistant materials like stainless steel.. It is primarily used for extracting water from deep borewells, wells, or underground reservoirs where the water table is significantly below the surface.
             </p>
         </div>
         <div className="about_second_content">
