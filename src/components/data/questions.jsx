@@ -18,7 +18,7 @@ export const pumpSelectionQuestions = [
       { id: 'sumpTank', label: 'Sump/Tank', nextSection: 'domesticUse_sumpTank' },
       { id: 'openwell', label: 'Openwell (Well)', nextSection: 'domesticUse_openwell' },
       { id: 'Borewell', label: 'Borewell', nextSection: 'domesticUse_borewell' },
-      { id: 'pressure boosting application', label: 'Pressure Boosting Application', nextSection: 'domesticUse_pressure boosting application' },
+      { id: 'Pressure Boosting Application', label: 'Pressure Boosting Application', nextSection: 'domesticUse_pressure_boosting_application' },
     ],
   },
 
@@ -37,7 +37,7 @@ export const pumpSelectionQuestions = [
     id: 'domesticUse_sumpTank_surface_head',
     question: 'HEAD- how high you will need to pump water? (In MTS) (1m-50m)',
     section: 'domesticUse_sumpTank_surface',
-    type: 'input', // Indicate this is an input field
+    type: 'input', 
     unit: 'meters',
     min: 1,
     max: 50,
@@ -336,6 +336,132 @@ export const pumpSelectionQuestions = [
   min: 1,
   max: 450,
 },
+
+
+// --- Domestic Pressure Boosting ---
+
+{
+  id: 'domesticUse_pressure_boosting_bathrooms',
+  section: 'domesticUse_pressure_boosting_application',
+  question: 'How many bathrooms/showers are in your household?',
+  options: [
+    { id: '1', label: '1', nextSection: 'domesticUse_pressure_boosting_simultaneous_one' },
+    { id: '2', label: '2', nextSection: 'domesticUse_pressure_boosting_simultaneous_two' },
+    { id: '3', label: '3', nextSection: 'domesticUse_pressure_boosting_simultaneous_three' },
+    { id: '4', label: '4', nextSection: 'domesticUse_pressure_boosting_simultaneous_four' },
+    { id: '5', label: '5', nextSection: 'domesticUse_pressure_boosting_simultaneous_five' },
+    { id: '6', label: '6', nextSection: 'domesticUse_pressure_boosting_simultaneous_six' },
+    { id: '7 & Above', label: '7 & Above', nextSection: 'domesticUse_pressure_boosting_simultaneous_seven' },
+  ],
+},
+
+
+// --- Domestic Pressure Boosting Simultaneous One   ---
+
+{
+  id: 'domesticUse_pressure_boosting_simultaneous',
+  section: 'domesticUse_pressure_boosting_simultaneous_one',
+  question: 'How many bathrooms/showers are used simultaneously?',
+  options: [
+    { id: '1', label: '1'},
+  ],
+},
+// {
+//   id: 'domesticUse_pressure_boosting_simultaneous',
+//   section: 'domesticUse_pressure_boosting_simultaneous_one',
+//   question: 'How many bathrooms/showers are used simultaneously?',
+//   options: [
+//     { id: '1', label: '1', nextSection: 'contact_service_team' }, // FIXED ✔
+//   ],
+// },
+
+{
+  id: 'Contact Our Service Team',
+  section: 'contact_service_team',
+  question: 'Please Contact Our Support Team For The Best Recommendation.',
+  options: [
+    {
+      id: 'call_now',
+      label: '📞 Call Our Service Team',
+      action: 'call_support'
+    }
+  ]
+},
+
+// --- Domestic Pressure Boosting Simultaneous Two   ---
+
+{
+  id: 'domesticUse_pressure_boosting_simultaneous',
+  section: 'domesticUse_pressure_boosting_simultaneous_two',
+  question: 'How many bathrooms/showers are used simultaneously?',
+  options: [
+    { id: '1-2', label: '1-2'},
+    { id: '2-3', label: '2-3'},
+  ],
+},
+// --- Domestic Pressure Boosting Simultaneous Three   ---
+
+{
+  id: 'domesticUse_pressure_boosting_simultaneous',
+  section: 'domesticUse_pressure_boosting_simultaneous_three',
+  question: 'How many bathrooms/showers are used simultaneously?',
+  options: [
+    { id: '2-3', label: '2-3'},
+    { id: '3-4', label: '3-4'},
+  ],
+},
+// --- Domestic Pressure Boosting Simultaneous Four   ---
+
+{
+  id: 'domesticUse_pressure_boosting_simultaneous',
+  section: 'domesticUse_pressure_boosting_simultaneous_four',
+  question: 'How many bathrooms/showers are used simultaneously?',
+  options: [
+    { id: '3-4', label: '3-4'},
+    { id: '4-5', label: '4-5'},
+  ],
+},
+// --- Domestic Pressure Boosting Simultaneous five   ---
+
+{
+  id: 'domesticUse_pressure_boosting_simultaneous',
+  section: 'domesticUse_pressure_boosting_simultaneous_five',
+  question: 'How many bathrooms/showers are used simultaneously?',
+  options: [
+    { id: '4-5', label: '4-5'},
+    { id: '5-6', label: '5-6'},
+  ],
+},
+// --- Domestic Pressure Boosting Simultaneous six   ---
+
+{
+  id: 'domesticUse_pressure_boosting_simultaneous',
+  section: 'domesticUse_pressure_boosting_simultaneous_six',
+  question: 'How many bathrooms/showers are used simultaneously?',
+  options: [
+    { id: '5-6', label: '5-6'},
+    { id: '6-7', label: '6-7'},
+  ],
+},
+
+// --- Domestic Pressure Boosting Simultaneous seven   ---
+
+{
+  id: 'domesticUse_pressure_boosting_simultaneous',
+  section: 'domesticUse_pressure_boosting_simultaneous_seven',
+  question: 'How many bathrooms/showers are used simultaneously?',
+  options: [
+    { id: '6-7', label: '6-7'},
+  ],
+},
+
+
+
+
+
+
+
+
  
 //------------- AGRICULTURE QUESTION SECTION ----------------//
   

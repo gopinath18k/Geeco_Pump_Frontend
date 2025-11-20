@@ -182,6 +182,19 @@ function PumpSelectionTool() {
       );
     }
 
+    // ---Domestic Pressure Boosting Application Section --- //
+
+    if (answers.domesticUse_pressure_boosting_bathrooms) {
+      tempPumps = tempPumps.filter(
+        pump => pump.numberofSB?.includes(answers.domesticUse_pressure_boosting_bathrooms)
+      );
+    }
+    if (answers.domesticUse_pressure_boosting_simultaneous) {
+      tempPumps = tempPumps.filter(
+        pump => pump.numberofSBS?.includes(answers.domesticUse_pressure_boosting_simultaneous)
+      );
+    }
+
     //--------- Agriculture Openwell Section Question -------------//
 
     if (answers.agricultureUse_waterSource) {
@@ -215,6 +228,10 @@ function PumpSelectionTool() {
         pump => pump.deliverySize?.includes(answers.agricultureUse_openwell_surface_irrigation_borewellSize)
       );
     }
+
+
+
+
 
     //--------- Agriculture Borewell Section Question -------------//
 
@@ -423,6 +440,9 @@ function PumpSelectionTool() {
         pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
       );
     }
+
+
+    
 
     // ---Commercial/Industrial BoreWell Section --- //
 

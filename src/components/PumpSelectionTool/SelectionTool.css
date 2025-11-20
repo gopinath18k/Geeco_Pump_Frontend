@@ -158,6 +158,77 @@
   transform: translateY(-2px);
 }
 
+/* ================================
+   CONTACT SERVICE TEAM BOX
+================================ */
+.contact-support-box {
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  text-align: center;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: contactFadeIn 0.6s ease-out forwards;
+}
+
+.contact-support-box p {
+  font-size: 18px;
+  font-family: var(--main-font);
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* CALL BUTTON */
+.contact-call-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: red;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: var(--second-font);
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+
+  box-shadow: 0 8px 18px rgba(0, 134, 255, 0.28);
+
+  /* Smooth anim */
+  transform: translateY(0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-call-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 134, 255, 0.40);
+  border: 1.5px solid red;
+  background: white;
+  color: red;
+  font-weight: 600;
+}
+
+.contact-call-btn:active {
+  transform: scale(0.97);
+}
+
+/* ======================
+   FADE-IN ANIMATION
+====================== */
+@keyframes contactFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
 /* ============================
    TABLET ( max-width: 1024px )
 ============================ */

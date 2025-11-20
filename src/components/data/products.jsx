@@ -249,6 +249,93 @@ export const pumps = [
     description: 'Compact 3-inch 1 Phase submersible pump for narrow borewells.',
   },
 
+// Domestic --> Pressure Boosting Application //
+
+  {
+    id: 'DOM_PRESSURE_BOOSTING_APP_01',
+    name: 'Geeco Pump Pressure Boosting 01',
+    application: 'Domestic',
+    waterSource: 'Pressure Boosting Application',
+    numberofSB: ['1'],
+    numberofSBS: ['1'],
+    pumpHp:['0.5'],
+    pumpTankCapacity:['2L'],
+    imageUrl: Pump,
+    
+  },
+  {
+    id: 'DOM_PRESSURE_BOOSTING_APP_02',
+    name: 'Geeco Pump Pressure Boosting 02',
+    application: 'Domestic',
+    waterSource: 'Pressure Boosting Application',
+    numberofSB: ['2'],
+    numberofSBS: ['1-2','2-3'],
+    pumpHp:['1'],
+    pumpTankCapacity:['24L'],
+    imageUrl: Pump,
+    
+  },
+  {
+    id: 'DOM_PRESSURE_BOOSTING_APP_03',
+    name: 'Geeco Pump Pressure Boosting 03',
+    application: 'Domestic',
+    waterSource: 'Pressure Boosting Application',
+    numberofSB: ['3'],
+    numberofSBS: ['2-3','3-4'],
+    pumpHp:['1','1.5'],
+    pumpTankCapacity:['24L'],
+    imageUrl: Pump,
+    
+  },
+  {
+    id: 'DOM_PRESSURE_BOOSTING_APP_04',
+    name: 'Geeco Pump Pressure Boosting 04',
+    application: 'Domestic',
+    waterSource: 'Pressure Boosting Application',
+    numberofSB: ['4'],
+    numberofSBS: ['3-4','4-5'],
+    pumpHp:['1.5'],
+    pumpTankCapacity:['24L','50L'],
+    imageUrl: Pump,
+    
+  },
+  {
+    id: 'DOM_PRESSURE_BOOSTING_APP_05',
+    name: 'Geeco Pump Pressure Boosting 05',
+    application: 'Domestic',
+    waterSource: 'Pressure Boosting Application',
+    numberofSB: ['5'],
+    numberofSBS: ['4-5','5-6'],
+    pumpHp:['1.5','2'],
+    pumpTankCapacity:['50L','60L'],
+    imageUrl: Pump,
+    
+  },
+  {
+    id: 'DOM_PRESSURE_BOOSTING_APP_06',
+    name: 'Geeco Pump Pressure Boosting 06',
+    application: 'Domestic',
+    waterSource: 'Pressure Boosting Application',
+    numberofSB: ['6'],
+    numberofSBS: ['5-6','6-7'],
+    pumpHp:['2'],
+    pumpTankCapacity:['60L','100L'],
+    imageUrl: Pump,
+    
+  },
+  {
+    id: 'DOM_PRESSURE_BOOSTING_APP_07',
+    name: 'Geeco Pump Pressure Boosting 07',
+    application: 'Domestic',
+    waterSource: 'Pressure Boosting Application',
+    numberofSB: ['7 & Above'],
+    numberofSBS: ['6-7'],
+    pumpHp:['2'],
+    pumpTankCapacity:['100L'],
+    imageUrl: Pump,
+    
+  },
+
 
 
   // ----AGRICULTURE PUMP PRODUCTS -----------//
