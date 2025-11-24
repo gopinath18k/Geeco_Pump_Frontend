@@ -167,11 +167,16 @@ function PumpSelectionTool() {
         pump => pump.phase === answers.domesticUse_borewell_submersible_phase
       );
     }
+    if (answers.domesticUse_borewell_submersible_sand_or_silt) {
+      tempPumps = tempPumps.filter(
+        pump => pump.sandorsilt === answers.domesticUse_borewell_submersible_sand_or_silt
+      );
+    }
 
     if (answers.domesticUse_borewell_submersible_head) {
       const headValue = parseFloat(answers.domesticUse_borewell_submersible_head);
       tempPumps = tempPumps.filter(
-        pump => headValue >= pump.totalHeadMin && headValue <= pump.totalHeadMax
+        pump => headValue >= pump.headMin && headValue <= pump.headMax
       );
     }
 
@@ -417,9 +422,19 @@ function PumpSelectionTool() {
     }
 
 
-    // --- Domestic Question Borewell Submersible --- //
+    // --- Commercial Question Borewell Submersible --- //
 
     
+    if (answers.commercialUse_borewell_submersible_phase) {
+      tempPumps = tempPumps.filter(
+        pump => pump.phase === answers.commercialUse_borewell_submersible_phase
+      );
+    }
+    if (answers.commercialUse_borewell_submersible_sand_or_silt) {
+      tempPumps = tempPumps.filter(
+        pump => pump.sandorsilt === answers.commercialUse_borewell_submersible_sand_or_silt
+      );
+    }
 
     if (answers.commercialUse_borewell_submersible_borewellSize) {
       tempPumps = tempPumps.filter(

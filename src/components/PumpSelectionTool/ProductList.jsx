@@ -38,6 +38,7 @@ function ProductList({ pumps }) {
             {pump.pumpHp && <li><strong>Pump HP:</strong> <span>{pump.pumpHp.join(', ')}</span></li>}
             {pump.pumpTankCapacity && <li><strong>Pump Tank Capacity:</strong> <span>{pump.pumpTankCapacity.join(', ')}</span></li>}
             {pump.phase && <li><strong>Phase:</strong> <span>{pump.phase.replace(/_/g, ' ')}</span></li>}
+            {pump.sandorsilt && <li><strong>Sand or Silt:</strong> <span>{pump.sandorsilt.replace(/_/g, ' ')}</span></li>}
             {pump.depthMin && <li><strong>Depth:</strong> <span>{pump.depthMin}-{pump.depthMax} m</span></li>}
             {pump.lpmMin && <li><strong>LPM:</strong> <span>{pump.lpmMin}-{pump.lpmMax} L/min</span></li>}
             {pump.borewellSize && <li><strong>Borewell Size:</strong> <span>{pump.borewellSize.replace(/_/g, '')}</span></li>}

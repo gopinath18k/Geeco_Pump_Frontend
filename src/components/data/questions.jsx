@@ -278,11 +278,21 @@ export const pumpSelectionQuestions = [
     question: 'What is the size of your bore well?',
     section: 'domesticUse_borewell_submersible_1phase',
     options: [
-      { id: '3 inch', label: '3"' },
-      { id: '4 inch', label: '4"' },
+      { id: '1 inch', label: '1"' },
+      { id: '1.25 inch', label: '1.25"' },
       { id: '6 inch', label: '6"' },
     ],
   },
+
+  {
+  id: 'domesticUse_borewell_submersible_sand_or_silt',
+  question: 'Is there a significantly high amount of Sand or Silt in your borewell water?',
+  section: 'domesticUse_borewell_submersible_1phase',
+  options: [
+    { id: 'Yes', label: 'Yes'},
+    { id: 'No', label: 'No'},
+  ],
+},
 
 {
   id: 'domesticUse_borewell_submersible_head',
@@ -311,11 +321,20 @@ export const pumpSelectionQuestions = [
     question: 'What is the size of your bore well?',
     section: 'domesticUse_borewell_submersible_3phase',
     options: [
-      { id: '3inch_b_sub', label: '3"' },
+      { id: '3 inch', label: '3"' },
       { id: '4inch_b_sub', label: '4"' },
       { id: '6inch_b_sub', label: '6"' },
     ],
   },
+    {
+  id: 'domesticUse_borewell_submersible_sand_or_silt',
+  question: 'Is there a significantly high amount of Sand or Silt in your borewell water?',
+  section: 'domesticUse_borewell_submersible_3phase',
+  options: [
+    { id: 'Yes', label: 'Yes'},
+    { id: 'No', label: 'No'},
+  ],
+},
 
 {
   id: 'domesticUse_borewell_submersible_head',
@@ -930,7 +949,7 @@ export const pumpSelectionQuestions = [
   max: 450,
 },
 
-// --- Surface Borewell Three Phase Questions ---
+// --- Surface Borewell Three Phase Questions --- //
 
 {
   id: 'commercialUse_borewell_surface_depth',
@@ -964,23 +983,44 @@ export const pumpSelectionQuestions = [
 
 // --- Submersible Borewell Questions ---
 
+  // --- Commercial/Industrial Submersible Borewell Questions ---
 
+{
+  id: 'commercialUse_borewell_submersible_phase',
+  question: 'Do you need a 1 phase or 3 phase design? (Single phase recommended for Household and Domestic applications)',
+  section: 'commercialUse_borewell_submersible',
+  options: [
+    { id: '1 Phase', label: '1 Phase', nextSection: 'commercialUse_submersible_surface_1phase' },
+    { id: '3 Phase', label: '3 Phase', nextSection: 'commercialUse_submersible_surface_3phase' },
+  ],
+},
+
+// --- Commercial/Industrial Submersible 1 Phase Borewell Questions --- //
+
+ {
+  id: 'commercialUse_borewell_submersible_sand_or_silt',
+  question: 'Is there a significantly high amount of Sand or Silt in your borewell water?',
+  section: 'commercialUse_submersible_surface_1phase',
+  options: [
+    { id: 'Yes', label: 'Yes'},
+    { id: 'No', label: 'No'},
+  ],
+},
 
 {
     id: 'commercialUse_borewell_submersible_borewellSize',
     question: 'What is the size of your bore well?',
-    section: 'commercialUse_borewell_submersible',
+    section: 'commercialUse_submersible_surface_1phase',
     options: [
-      { id: '3inch_b_sub', label: '3"' },
-      { id: '4inch_b_sub', label: '4"' },
-      { id: '6inch_b_sub', label: '6"' },
+      { id: '3 inch', label: '3"' },
+      { id: '4 inch', label: '4"' },
+      { id: '6 inch', label: '6"' },
     ],
   },
-
 {
   id: 'commercialUse_borewell_submersible_head',
   question: 'What is the total head you want to pump the water in meters? ( Total head= Depth of Bore pump installation + height of the over head tank)',
-  section: 'commercialUse_borewell_submersible',
+  section: 'commercialUse_submersible_surface_1phase',
   type: 'input',
   unit: 'meters',
   min: 1,
@@ -990,13 +1030,55 @@ export const pumpSelectionQuestions = [
 {
   id: 'commercialUse_borewell_submersible_discharge',
   question: 'Any desired LPM? (in liters)',
-  section: 'commercialUse_borewell_submersible',
+  section: 'commercialUse_submersible_surface_1phase',
   type: 'input',
   unit: 'LPM',
   min: 1,
   max: 450,
 },
 
+
+// --- Commercial/Industrial Submersible 3 Phase Borewell Questions --- //
+
+ {
+  id: 'commercialUse_borewell_submersible_sand_or_silt',
+  question: 'Is there a significantly high amount of Sand or Silt in your borewell water?',
+  section: 'commercialUse_submersible_surface_3phase',
+  options: [ 
+    { id: 'Yes', label: 'Yes'},
+    { id: 'No', label: 'No'},
+  ],
+},
+
+{
+    id: 'commercialUse_borewell_submersible_borewellSize',
+    question: 'What is the size of your bore well?',
+    section: 'commercialUse_submersible_surface_3phase',
+    options: [
+      { id: '3 inch', label: '3"' },
+      { id: '4 inch', label: '4"' },
+      { id: '6 inch', label: '6"' },
+    ],
+  },
+{
+  id: 'commercialUse_borewell_submersible_head',
+  question: 'What is the total head you want to pump the water in meters? ( Total head= Depth of Bore pump installation + height of the over head tank)',
+  section: 'commercialUse_submersible_surface_3phase',
+  type: 'input',
+  unit: 'meters',
+  min: 1,
+  max: 250,
+},
+
+{
+  id: 'commercialUse_borewell_submersible_discharge',
+  question: 'Any desired LPM? (in liters)',
+  section: 'commercialUse_submersible_surface_3phase',
+  type: 'input',
+  unit: 'LPM',
+  min: 1,
+  max: 450,
+},
 
  // ---Commercial/Industrial BoreWell Section --- //
 
@@ -1017,8 +1099,7 @@ export const pumpSelectionQuestions = [
     question: 'What is the height of the building?',
     section: 'commercialUse_HighRiseBuilding', 
     options: [
-      { id: 'High Rise Building', label: 'High Rise Building', nextSection: 'commercialUse_HighRiseBuilding' },
-      { id: 'RO Application', label: 'RO Application', nextSection: 'commercialUse_ROApplication' },
+      { id: 'High Rise Building', label: 'High Rise Building', nextSection: 'contact_service_team' },
     ],
   },
 
