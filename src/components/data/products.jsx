@@ -1320,4 +1320,34 @@ export const pumps = [
     description: '4-inch 1 Phase submersible pump for domestic borewell applications.',
   },
 
+// --- Wastewater and Drainage Application Section --- //
+
+// Basement Garage Balcony Drainage //
+
+  {
+    id: 'WAS_DRA_001',
+    name: 'Geeco Drainage Application Pump',
+    application: 'Waste Water',
+    waterSource: 'Basement Garage Balcony Drainage',
+    installLocation: 'Drainage Application',
+    totalHeadMin: 1, 
+    totalHeadMax: 25,
+    imageUrl: Pump,
+  },
+
+  // Storm Water Rainwater Sumps //
+
+  {
+    id: 'WAS_DRA_001',
+    name: 'Geeco Drainage Application Pump',
+    application: 'Waste Water',
+    waterSource: 'Storm Water Rainwater Sumps',
+    installLocation: 'Drainage Application',
+    totalHeadMin: 1, 
+    totalHeadMax: 25, 
+    lpmMin: 1, 
+    lpmMax: 80,
+    imageUrl: Pump,
+  },
+
 ];

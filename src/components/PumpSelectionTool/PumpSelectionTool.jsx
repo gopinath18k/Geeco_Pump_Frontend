@@ -467,6 +467,46 @@ function PumpSelectionTool() {
     if (answers.commercialUse_pressureboostingsystem) {
       tempPumps = tempPumps.filter(pump => pump.mainPurpose === answers.commercialUse_pressureboostingsystem);
     }
+    if (answers.commercialUse_heightofthebuilding) {
+      tempPumps = tempPumps.filter(pump => pump.heightoftheBuilding === answers.commercialUse_heightofthebuilding);
+    }
+
+
+    // ---Wastewater and Drainage Applications Section --- //
+
+    // ---Drainage Application Section --- //
+    
+    if (answers.WastewaterUse_wastewater_and_drainage_applications_installLocation) {
+          tempPumps = tempPumps.filter(
+            pump => pump.installLocation === answers.WastewaterUse_wastewater_and_drainage_applications_installLocation
+          );
+    }
+    
+    if (answers.WastewaterUse_drainage_applications_waterSource) {
+      tempPumps = tempPumps.filter(pump => pump.waterSource === answers.WastewaterUse_drainage_applications_waterSource);
+    }
+    if (answers.WastewaterUse_basement_garage_balcony_head) {
+      const headValue = parseFloat(answers.WastewaterUse_basement_garage_balcony_head);
+      tempPumps = tempPumps.filter(
+        pump => headValue >= pump.totalHeadMin && headValue <= pump.totalHeadMax
+      );
+    }
+
+    // --- Wastewater  Storm Water Rainwater Sumps Section --- //
+
+
+    if (answers.WastewaterUse_Stormwater_Rainwater_head) {
+      const headValue = parseFloat(answers.WastewaterUse_Stormwater_Rainwater_head);
+      tempPumps = tempPumps.filter(
+        pump => headValue >= pump.totalHeadMin && headValue <= pump.totalHeadMax
+      );
+    }
+    if (answers.WastewaterUse_Stormwater_Rainwater_discharge) {
+      const dischargeValue = parseFloat(answers.WastewaterUse_Stormwater_Rainwater_discharge);
+      tempPumps = tempPumps.filter(
+        pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+      );
+    }
 
     
 

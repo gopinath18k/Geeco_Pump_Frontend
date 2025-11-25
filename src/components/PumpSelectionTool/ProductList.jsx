@@ -31,6 +31,7 @@ function ProductList({ pumps }) {
               </span>
             </li>
             {pump.headMin && <li><strong>Head:</strong> <span>{pump.headMin}-{pump.headMax} m</span></li>}
+            {pump.installLocation && <li><strong>Install Location:</strong> <span>{pump.installLocation.replace(/_/g, ' ')}</span></li>}
             {pump.dischargeMin && <li><strong>Discharge:</strong> <span>{pump.dischargeMin}-{pump.dischargeMax} LPM</span></li>}
             {pump.deliverySize && <li><strong>Delivery Size:</strong> <span>{pump.deliverySize.join(', ')}</span></li>}
             {pump.numberofSB && <li><strong>No bathrooms:</strong> <span>{pump.numberofSB.join(', ')}</span></li>}

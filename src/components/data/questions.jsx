@@ -7,7 +7,7 @@ export const pumpSelectionQuestions = [
       { id: 'Domestic', label: 'Domestic Use (Home, Garden, Water Tanks.)', nextSection: 'domesticUse' },
       { id: 'agricultural', label: 'Agricultural Use (Irrigation, Open Well, Borewell.)', nextSection: 'agriculturalUse' },
       { id: 'commercial', label: 'Commercial/Industrial Use (Utility Water Pumping, Car Wash, Pressure Boosting.)', nextSection: 'commercialUse' },
-      { id: 'wastewater', label: 'Wastewater and Drainage Applications.', nextSection: 'wastewaterUse' },
+      { id: 'Waste Water', label: 'Wastewater and Drainage Applications.', nextSection: 'wastewaterUse' },
     ],
   },
   {
@@ -1083,8 +1083,7 @@ export const pumpSelectionQuestions = [
  // ---Commercial/Industrial BoreWell Section --- //
 
  // ---Commercial/Industrial Pressure Boosting Application Section --- //
-  
-  
+
   {
     id: 'commercialUse_pressureboostingsystem',
     question: 'Which type of pressure boosting system are you looking for?',
@@ -1094,13 +1093,209 @@ export const pumpSelectionQuestions = [
       { id: 'RO Application', label: 'RO Application', nextSection: 'commercialUse_ROApplication' },
     ],
   },
+
+  // ---Commercial/Industrial Pressure Boosting High Rise Building Section --- //
+
   {
     id: 'commercialUse_heightofthebuilding',
     question: 'What is the height of the building?',
     section: 'commercialUse_HighRiseBuilding', 
     options: [
-      { id: 'High Rise Building', label: 'High Rise Building', nextSection: 'contact_service_team' },
+      { id: 'Hight Of The Building', label: 'Hight Of The Building' },
     ],
   },
+  {
+    id: 'commercialUse_floorsinbuilding',
+    question: 'Number of floors in the building?',
+    section: 'commercialUse_HighRiseBuilding', 
+    options: [
+      { id: 'Number Of Floors', label: 'Number Of Floors',nextSection: 'contact_service_team' },
+    ],
+  },
+
+  // ---Commercial/Industrial Pressure Boosting RO Application Section --- //
+
+  {
+    id: 'commercialUse_typeofroplant',
+    question: 'What type of RO plant is the Pump being used?',
+    section: 'commercialUse_ROApplication', 
+    options: [
+      { id: 'Domestic RO', label: 'Domestic RO',nextSection: 'contact_service_team' },
+      { id: 'Commercial RO', label: 'Commercial RO',nextSection: 'contact_service_team' },
+    ],
+  },
+
+  // ---Commercial/Industrial Climate Control Application Section --- //
+
+  {
+    id: 'commercialUse_climate control application',
+    question: 'Which Type Of Climate Control Application',
+    section: 'commercialUse_Climate Control Application', 
+    options: [
+      { id: 'Humidification - Mist Humidifiers', label: 'Humidification - Mist Humidifiers',nextSection: 'commercialUse_Mist Humidifiers' },
+      { id: 'Circulation Pump For Cooling Tower', label: 'Circulation Pump For Cooling Tower',nextSection: 'commercialUse_Cooling Tower' },
+    ],
+  },
+  {
+    id: 'commercialUse_system being used',
+    question: 'Where is the system being used?',
+    section: 'commercialUse_Mist Humidifiers', 
+    options: [
+      { id: 'Textile industry', label: 'Textile industry',nextSection: 'contact_service_team' },
+      { id: 'Cold Storage', label: 'Cold Storage',nextSection: 'contact_service_team' },
+      { id: 'Fruit And Vegetable Outlets', label: 'Fruit And Vegetable Outlets',nextSection: 'contact_service_team' },
+      { id: 'HVAC Systems', label: 'HVAC Systems',nextSection: 'contact_service_team' },
+    ],
+  },
+
+  // ---Commercial/Industrial High Pressure Washing and cleaning Section --- //
+
+  {
+    id: 'commercialUse_high pressure washer',
+    question: 'Where Will Be The High Pressure Washer Used?',
+    section: 'commercialUse_High Pressure Washing', 
+    options: [
+      { id: 'Domestic Car/Bike Wash', label: 'Domestic Car/Bike Wash',nextSection: 'commercialUse_Car/Bike Wash' },
+      { id: 'Commercial Vehicle washing/cleaning', label: 'Commercial Vehicle washing/cleaning',nextSection: 'commercialUse_Vehicle washing/cleaning' },
+      { id: 'Solar Panel Cleaning', label: 'Solar Panel Cleaning',nextSection: 'commercialUse_Solar Panel Cleaning' },
+      { id: 'Agri Machinery/Farm  Cleaning', label: 'Agri Machinery/Farm  Cleaning',nextSection: 'commercialUse_Agri Machinery/Farm  Cleaning' },
+      { id: 'Other Cleaning Applications', label: 'Other Cleaning Applications',nextSection: 'commercialUse_Other Cleaning Applications' },
+    ],
+  },
+
+  // ---Commercial/Industrial Domestic Car/Bike wash Section --- //
+
+  {
+    id: 'commercialUse_pressure washer kit',
+    question: 'Choose Domestic Pressure washer kit',
+    section: 'commercialUse_Car/Bike Wash', 
+    options: [
+      { id: 'Pressure Washer Kit', label: 'Pressure Washer Kit'},
+    ],
+  },
+
+  // ---Commercial/Industrial Vehicle washing/cleaning Section --- //
+
+  {
+    id: 'commercialUse_vehicle washing cleaning',
+    question: 'Choose Commercial Vehicle Washing/Cleaning',
+    section: 'commercialUse_Vehicle washing/cleaning', 
+    options: [
+      { id: 'Commercial Car/Bike Wash Station', label: 'Commercial Car/Bike Wash Station'},
+      { id: 'Heavy And Commercial Vehicle Washing', label: 'Heavy And Commercial Vehicle Washing'},
+    ],
+  },
+
+  // ---Commercial/Industrial Solar Panel Cleaning Section --- //
+
+  {
+    id: 'commercialUse_solar panel cleaning',
+    question: 'What Type of Solar Panel Cleaning Pump?',
+    section: 'commercialUse_Solar Panel Cleaning', 
+    options: [
+      { id: 'Domestic Solar Panel Cleaning', label: 'Domestic Solar Panel Cleaning',nextSection: 'contact_service_team'},
+      { id: 'Commercial/Industrial Rooftop Solar Cleaning', label: 'Commercial/Industrial Rooftop Solar Cleaning',nextSection: 'contact_service_team'},
+      { id: 'Solar Farms Cleaning Applications', label: 'Solar Farms Cleaning Applications',nextSection: 'contact_service_team'},
+    ],
+  },
+
+  // ---Commercial/Industrial Agri machinery/ Farm Section --- //
+
+  {
+    id: 'commercialUse_agri machinery farm cleaning',
+    question: 'What Type of Agri machinery/ Farm  cleaning Pump?',
+    section: 'commercialUse_Agri Machinery/Farm  Cleaning', 
+    options: [
+      { id: 'Tractor And Equipment Cleaning', label: 'Tractor And Equipment Cleaning',nextSection: 'contact_service_team'},
+      { id: 'Farm Cleaning', label: 'Farm Cleaning',nextSection: 'contact_service_team'},
+    ],
+  },
+
+  // ---Commercial/Industrial Other Cleaning Applications Section --- //
+
+  {
+    id: 'commercialUse_other cleaning applications',
+    question: 'Other Cleaning Applications',
+    section: 'commercialUse_Other Cleaning Applications', 
+    options: [
+      { id: 'Floor, Bathroom Cleaning', label: 'Floor,Bathroom Cleaning',nextSection: 'contact_service_team'},
+      { id: 'Wall Paint Removal Applications', label: 'Wall Paint Removal Applications',nextSection: 'contact_service_team'},
+      { id: 'CIP- Clean in Place', label: 'CIP- Clean in Place',nextSection: 'contact_service_team'},
+    ],
+  },
+
+  // ---Commercial/Industrial Main Other Industrial Section --- //
+
+  {
+    id: 'commercialUse_other industrial applications',
+    question: 'Other Industrial Application',
+    section: 'commercialUse_Other Industrial', 
+    options: [
+      { id: 'Coolant Circulation Pumps', label: 'Coolant Circulation Pumps',nextSection: 'contact_service_team'},
+      { id: 'Boiler Feeding Pump', label: 'Boiler Feeding Pump',nextSection: 'contact_service_team'},
+    ],
+  },
+
+
+  // --- Wastewater and Drainage Section --- //
+  
+  {
+    id: 'WastewaterUse_wastewater_and_drainage_applications_installLocation',
+    question: 'What Type of water does the pump need to handle?',
+    section: 'wastewaterUse', 
+    options: [
+      { id: 'Drainage Application', label: 'Drainage Application',nextSection: 'wastewaterUse_Drainage Application'},
+      { id: 'Dewatering Application', label: 'Dewatering Application',nextSection: 'wastewaterUse_Dewatering Application'},
+      { id: 'Sewage/ Effluent Water', label: 'Sewage/ Effluent Water',nextSection: 'wastewaterUse_Sewage Effluent Water'},
+      { id: 'Industrial Waste Drainage', label: 'Industrial Waste Drainage',nextSection: 'wastewaterUse_Industrial Waste Drainage'},
+    ],
+  },
+
+
+  // --- Wastewater and Drainage Application Section --- //
+
+  {
+    id: 'WastewaterUse_drainage_applications_waterSource',
+    question: 'What Type of Drainage Application?',
+    section: 'wastewaterUse_Drainage Application', 
+    options: [
+      { id: 'Basement Garage Balcony Drainage', label: 'Basement Garage Balcony Drainage',nextSection: 'wastewaterUse_Basement_Garage_Balcony_Drainage'},
+      { id: 'Storm Water Rainwater Sumps', label: 'Stormwater/Rainwater Sumps',nextSection: 'wastewaterUse_Stormwater_Rainwater_Sumps'},
+    ],
+  },
+
+  // --- Wastewater  Basement/Garage/Balcony Drainage Section --- //
+
+  {
+  id: 'WastewaterUse_basement_garage_balcony_head',
+  question: 'What is the total head you want to pump the water in meters?',
+  section: 'wastewaterUse_Basement_Garage_Balcony_Drainage',
+  type: 'input',
+  unit: 'meters',
+  min: 1,
+  max: 30,
+},
+
+  // --- Wastewater  Storm Water Rainwater Sumps Section --- //
+
+  {
+  id: 'WastewaterUse_Stormwater_Rainwater_head',
+  question: 'What is the total head you want to pump the water in meters?',
+  section: 'wastewaterUse_Stormwater_Rainwater_Sumps',
+  type: 'input',
+  unit: 'meters',
+  min: 1,
+  max: 30,
+},
+{
+  id: 'WastewaterUse_Stormwater_Rainwater_discharge',
+  question: 'Discharge Required',
+  section: 'wastewaterUse_Stormwater_Rainwater_Sumps',
+  type: 'input',
+  unit: 'LPM',
+  min: 1,
+  max: 80,
+},
+
 
 ];
