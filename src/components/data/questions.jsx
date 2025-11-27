@@ -236,7 +236,7 @@ export const pumpSelectionQuestions = [
   type: 'input',
   unit: 'meters',
   min: 1,
-  max: 50,
+  max: 250,
 },
 
 {
@@ -246,7 +246,7 @@ export const pumpSelectionQuestions = [
   type: 'input',
   unit: 'meters',
   min: 1,
-  max: 50,
+  max: 250,
 },
 
 {
@@ -256,7 +256,7 @@ export const pumpSelectionQuestions = [
   type: 'input',
   unit: 'LPM',
   min: 1,
-  max: 450,
+  max: 1000,
 },
 
 // --- Submersible Borewell Questions ---
@@ -271,7 +271,7 @@ export const pumpSelectionQuestions = [
   ],
 },
 
-// --- Surface Borewell Single Phase Questions ---
+// --- Submersible Borewell Single Phase Questions ---
 
 {
     id: 'domesticUse_borewell_submersible_borewellSize',
@@ -280,7 +280,8 @@ export const pumpSelectionQuestions = [
     options: [
       { id: '1 inch', label: '1"' },
       { id: '1.25 inch', label: '1.25"' },
-      { id: '6 inch', label: '6"' },
+      { id: '1.5 inch', label: '1.5"' },
+      { id: '2 inch', label: '2"' },
     ],
   },
 
@@ -314,7 +315,7 @@ export const pumpSelectionQuestions = [
   max: 450,
 },
 
-// --- Surface Borewell Three Phase Questions ---
+// --- Submersible Borewell Three Phase Questions ---
 
 {
     id: 'domesticUse_borewell_submersible_borewellSize',

@@ -52,7 +52,7 @@
 
 body, html {
   margin: 0 !important;
-  padding: 0 !important;
+  padding-top: 0px !important;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -62,7 +62,36 @@ ul, ol {
   padding: 0;
 }
 
-
+@media (max-width: 2800px) {
+  body {
+    padding-top: 145px !important; 
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 2560px) {
+  body {
+    padding-top: 130px !important; 
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 1800px) {
+  body {
+    padding-top: 100px !important; 
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 1440px) {
+  body {
+    padding-top: 80px !important; 
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 1024px) {
+  body {
+    padding-top: 80px !important; 
+    box-sizing: border-box;
+  }
+}
 @media (max-width: 991px) {
  
   html, body {

@@ -11,6 +11,32 @@
   object-fit: cover;
 }
 
+@media (max-width: 2800px) {
+  .banner-img {
+    height: 120vh;
+  }
+}
+@media (max-width: 2560px) {
+  .banner-img {
+    height: 110vh;
+  }
+}
+@media (max-width: 1800px) {
+  .banner-img {
+    height: 85vh;
+  }
+}
+@media (max-width: 1440px) {
+  .banner-img {
+    height: 75vh;
+  }
+}
+@media (max-width: 1024px) {
+  .banner-img {
+    height: 75vh;
+  }
+}
+
 @media (max-width: 768px) {
   .banner-img {
     height: 55vh;
