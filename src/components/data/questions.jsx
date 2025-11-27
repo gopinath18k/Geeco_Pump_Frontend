@@ -1298,4 +1298,63 @@ export const pumpSelectionQuestions = [
 },
 
 
+// --- Wastewater Dewatering Application Section --- //
+
+  {
+    id: 'WastewaterUse_dewatering_application_waterSource',
+    question: 'What Type of Dewatering Application?',
+    section: 'wastewaterUse_Dewatering Application', 
+    options: [
+      { id: 'Construction and Ground Water', label: 'Construction and Ground Water',nextSection: 'wastewaterUse_construction_ground_water'},
+    ],
+  },
+  {
+  id: 'WastewaterUse_dewatering_application_head',
+  question: 'What is the total head you want to pump the water in meters? (1m - 80m)',
+  section: 'wastewaterUse_construction_ground_water',
+  type: 'input',
+  unit: 'meters',
+  min: 1,
+  max: 80,
+},
+{
+  id: 'WastewaterUse_dewatering_application_discharge',
+  question: 'Discharge Required (1LPS-80LPS)',
+  section: 'wastewaterUse_construction_ground_water',
+  type: 'input',
+  unit: 'LPM',
+  min: 1,
+  max: 80,
+},
+
+// --- Wastewater Sewage/ Effluent Water Section --- //
+
+{
+    id: 'WastewaterUse_sewage_effluent_water_applications',
+    question: 'What Type of Sewage/Effluent Water?',
+    section: 'wastewaterUse_Sewage Effluent Water', 
+    options: [
+      { id: 'Kitchen And Utility Water', label: 'Kitchen And Utility Water',nextSection: 'contact_service_team'},
+      { id: 'Building Sewage Sumps', label: 'Building Sewage Sumps',nextSection: 'contact_service_team'},
+      { id: 'STP Plant', label: 'STP Plant',nextSection: 'contact_service_team'},
+    ],
+  },
+
+// --- Wastewater Industrial Waste Drainage Section --- //
+
+  {
+    id: 'WastewaterUse_industrial_waste_drainage_applications',
+    question: 'What Type of Industrial Waste Drainage?',
+    section: 'wastewaterUse_Industrial Waste Drainage', 
+    options: [
+      { id: 'Food Processing', label: 'Food Processing',nextSection: 'contact_service_team'},
+      { id: 'Textiles', label: 'Textiles',nextSection: 'contact_service_team'},
+      { id: 'Pulp and Paper Industry', label: 'Pulp and Paper Industry',nextSection: 'contact_service_team'},
+      { id: 'Fisheries and Seafood Plants', label: 'Fisheries and Seafood Plants',nextSection: 'contact_service_team'},
+      { id: 'Plastic Recycling', label: 'Plastic Recycling',nextSection: 'contact_service_team'},
+    ],
+  },
+  
+
+
 ];

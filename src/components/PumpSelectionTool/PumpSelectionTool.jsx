@@ -508,6 +508,25 @@ function PumpSelectionTool() {
       );
     }
 
+
+    // --- Wastewater Dewatering Application Section --- //
+
+    if (answers.WastewaterUse_dewatering_application_waterSource) {
+      tempPumps = tempPumps.filter(pump => pump.waterSource === answers.WastewaterUse_dewatering_application_waterSource);
+    }
+    if (answers.WastewaterUse_dewatering_application_head) {
+      const headValue = parseFloat(answers.WastewaterUse_dewatering_application_head);
+      tempPumps = tempPumps.filter(
+        pump => headValue >= pump.totalHeadMin && headValue <= pump.totalHeadMax
+      );
+    }
+    if (answers.WastewaterUse_dewatering_application_discharge) {
+      const dischargeValue = parseFloat(answers.WastewaterUse_dewatering_application_discharge);
+      tempPumps = tempPumps.filter(
+        pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+      );
+    }
+
     
 
     

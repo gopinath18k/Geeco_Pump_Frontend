@@ -1350,4 +1350,19 @@ export const pumps = [
     imageUrl: Pump,
   },
 
+  // Dewatering Application //
+
+  {
+    id: 'WAS_DRA_001',
+    name: 'Geeco Drainage Application Pump',
+    application: 'Waste Water',
+    waterSource: 'Construction and Ground Water',
+    installLocation: 'Dewatering Application',
+    totalHeadMin: 1, 
+    totalHeadMax: 25, 
+    lpmMin: 1, 
+    lpmMax: 80,
+    imageUrl: Pump,
+  },
+
 ];
