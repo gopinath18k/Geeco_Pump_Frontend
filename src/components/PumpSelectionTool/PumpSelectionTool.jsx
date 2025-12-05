@@ -25,7 +25,12 @@ function PumpSelectionTool() {
      // Domestic Question //
 
     if (answers.applicationType) {
-      tempPumps = tempPumps.filter(pump => pump.application === answers.applicationType);
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.application)) {
+          return pump.application.includes(answers.applicationType);
+        }
+        return pump.application === answers.applicationType;
+      });
     }
     if (answers.domesticUse_waterSource) {
       tempPumps = tempPumps.filter(pump => pump.waterSource === answers.domesticUse_waterSource);
@@ -121,7 +126,7 @@ function PumpSelectionTool() {
     
     if (answers.domesticUse_borewell_installLocation) {
       tempPumps = tempPumps.filter(
-        pump => pump.installLocation === answers.domesticUse_borewell_installLocation
+        pump => pump.installLocationtype === answers.domesticUse_borewell_installLocation
       );
     }
     if (answers.domesticUse_borewell_surface_phase) {
@@ -255,7 +260,12 @@ function PumpSelectionTool() {
   
     if (answers.agricultureUse_borewell_submersible_borewellSize) {
       tempPumps = tempPumps.filter(
-        pump => pump.deliverySize?.includes(answers.agricultureUse_borewell_submersible_borewellSize)
+        pump => pump.borewellSize?.includes(answers.agricultureUse_borewell_submersible_borewellSize)
+      );
+    }
+    if (answers.agricultureUse_borewell_submersible_sand_or_silt) {
+      tempPumps = tempPumps.filter(
+        pump => pump.sandorsilt === answers.agricultureUse_borewell_submersible_sand_or_silt
       );
     }
     if (answers.agricultureUse_borewell_submersible_powersource) {
@@ -271,13 +281,13 @@ function PumpSelectionTool() {
     if (answers.agricultureUse_borewell_submersible_head) {
       const headValue = parseFloat(answers.agricultureUse_borewell_submersible_head);
       tempPumps = tempPumps.filter(
-        pump => headValue >= pump.totalHeadMin && headValue <= pump.totalHeadMax
+        pump => headValue >= pump.headMin && headValue <= pump.headMax
       );
     }
     if (answers.agricultureUse_borewell_submersible_discharge) {
       const dischargeValue = parseFloat(answers.agricultureUse_borewell_submersible_discharge);
       tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax
+        pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
       );
     }
 

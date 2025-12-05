@@ -5,7 +5,7 @@ export const pumpSelectionQuestions = [
     question: 'What do you need the pump for?',
     options: [
       { id: 'Domestic', label: 'Domestic Use (Home, Garden, Water Tanks.)', nextSection: 'domesticUse' },
-      { id: 'agricultural', label: 'Agricultural Use (Irrigation, Open Well, Borewell.)', nextSection: 'agriculturalUse' },
+      { id: 'Agricultural', label: 'Agricultural Use (Irrigation, Open Well, Borewell.)', nextSection: 'agriculturalUse' },
       { id: 'commercial', label: 'Commercial/Industrial Use (Utility Water Pumping, Car Wash, Pressure Boosting.)', nextSection: 'commercialUse' },
       { id: 'Waste Water', label: 'Wastewater and Drainage Applications.', nextSection: 'wastewaterUse' },
     ],
@@ -282,6 +282,7 @@ export const pumpSelectionQuestions = [
       { id: '1.25 inch', label: '1.25"' },
       { id: '1.5 inch', label: '1.5"' },
       { id: '2 inch', label: '2"' },
+      { id: '2.5 inch', label: '2.5"' },
     ],
   },
 
@@ -491,7 +492,7 @@ export const pumpSelectionQuestions = [
     section: 'agriculturalUse', 
     options: [
       { id: 'openwell', label: 'Openwell', nextSection: 'agricultureUse_openwell' },
-      { id: 'borewell', label: 'Borewell', nextSection: 'agricultureUse_borewell' },
+      { id: 'Borewell', label: 'Borewell', nextSection: 'agricultureUse_borewell' },
       { id: 'canalriverbed', label: 'Canal RiverBed', nextSection: 'agricultureUse_canalriverbed' },
     ],
   },
@@ -579,7 +580,7 @@ export const pumpSelectionQuestions = [
     question: 'Type Of Irrigation- Surface Irrigation,Sprinkler, Drip',
     section: 'agricultureUse_borewell',
     options: [
-      { id: 'surface_irrigation', label: 'Surface Irrigation', nextSection: 'agricultureUse_borewell_surface_irrigation' },
+      { id: 'Surface Irrigation', label: 'Surface Irrigation', nextSection: 'agricultureUse_borewell_surface_irrigation' },
       { id: 'sprinkler', label: 'Sprinkler', nextSection: 'agricultureUse_borewell_sprinkler' },
       { id: 'drip_irrigation', label: 'Drip Irrigation', nextSection: 'agricultureUse_borewell_drip_irrigation' },
     ],
@@ -593,19 +594,28 @@ export const pumpSelectionQuestions = [
     question: 'Where do you want to install the pump? (Inside Borewell, Surface)',
     section: 'agricultureUse_borewell_surface_irrigation',
     options: [
-      { id: 'submersible', label: 'Submersible', nextSection: 'agricultureUse_borewell_submersible' },
-      { id: 'surface', label: 'Surface', nextSection: 'agricultureUse_borewell_surface' },
+      { id: 'Submersible Borewell', label: 'Submersible', nextSection: 'agricultureUse_borewell_submersible' },
+      { id: 'Surface Borewell', label: 'Surface', nextSection: 'agricultureUse_borewell_surface' },
     ],
   },
   {
       id: 'agricultureUse_borewell_submersible_borewellSize',
-      question: 'What is the size of your bore well? - 4”, 6”, 7”?',
+      question: 'What is the size of your bore well? - 1”, 1.5”, 2”, 2.5”?',
       section: 'agricultureUse_borewell_submersible',
       options: [
-        { id: '1inch_sur_ir', label: '1"' },
-        { id: '1.5inch_sur_ir', label: '1.5"' },
-        { id: '2inch_sur_ir', label: '2"' },
-        { id: '2.5inch_sur_ir', label: '2.5"' },
+        { id: '1 inch', label: '1"' },
+        { id: '1.5 inch', label: '1.5"' },
+        { id: '2 inch', label: '2"' },
+        { id: '2.5 inch', label: '2.5"' },
+      ],
+    },
+      {
+      id: 'agricultureUse_borewell_submersible_sand_or_silt',
+      question: 'Is there a significantly high amount of Sand or Silt in your borewell water?',
+      section: 'agricultureUse_borewell_submersible',
+      options: [
+        { id: 'Yes', label: 'Yes'},
+        { id: 'No', label: 'No'},
       ],
     },
 
@@ -614,8 +624,8 @@ export const pumpSelectionQuestions = [
     question: 'Do you need a  1phase or a 3phase design?',
     section: 'agricultureUse_borewell_submersible',
     options: [
-      { id: '1phase_b_sub', label: '1 Phase', nextSection: 'agricultureUse_borewell_submersible_1phase' },
-      { id: '3phase_b_sub', label: '3 Phase', nextSection: 'agricultureUse_borewell_submersible_3phase' },
+      { id: '1 Phase', label: '1 Phase', nextSection: 'agricultureUse_borewell_submersible_1phase' },
+      { id: '3 Phase', label: '3 Phase', nextSection: 'agricultureUse_borewell_submersible_3phase' },
     ],
    },
 

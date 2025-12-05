@@ -19,9 +19,6 @@ function ProductList({ pumps }) {
           <h3>{pump.name}</h3>
           {/* <p>{pump.description}</p> */}
           <ul className="specs-list">
-            <li><strong>Application:</strong> <span>{pump.application}</span></li>
-            <li><strong>Water Source:</strong> <span>{pump.waterSource}</span></li>
-            {/* ⭐ APPLICATION – ALWAYS SHOW */}
             <li>
               <strong>Application:</strong>{" "}
               <span>
@@ -30,8 +27,13 @@ function ProductList({ pumps }) {
                   : pump.application}
               </span>
             </li>
-            {pump.headMin && <li><strong>Head:</strong> <span>{pump.headMin}-{pump.headMax} m</span></li>}
+            {/* <li><strong>Application:</strong> <span>{pump.application}</span></li> */}
+            <li><strong>Water Source:</strong> <span>{pump.waterSource}</span></li>
+            {/* ⭐ APPLICATION – ALWAYS SHOW */}
+            
             {pump.installLocation && <li><strong>Install Location:</strong> <span>{pump.installLocation.replace(/_/g, ' ')}</span></li>}
+            {pump.installLocationtype && <li><strong>Install Location Type:</strong> <span>{pump.installLocationtype.replace(/_/g, ' ')}</span></li>}
+            {pump.headMin && <li><strong>Head:</strong> <span>{pump.headMin}-{pump.headMax} m</span></li>}
             {pump.dischargeMin && <li><strong>Discharge:</strong> <span>{pump.dischargeMin}-{pump.dischargeMax} LPM</span></li>}
             {pump.deliverySize && <li><strong>Delivery Size:</strong> <span>{pump.deliverySize.join(', ')}</span></li>}
             {pump.numberofSB && <li><strong>No bathrooms:</strong> <span>{pump.numberofSB.join(', ')}</span></li>}
