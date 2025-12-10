@@ -2,7 +2,7 @@
 import React from 'react';
 import "./ProductList.css";
 
-function ProductList({ pumps }) {
+function ProductList({ pumps, selectedAnswers }) {
   if (!pumps || pumps.length === 0) {
     return (
       <div className="no-pumps-message">
@@ -11,44 +11,55 @@ function ProductList({ pumps }) {
     );
   }
 
+  const getFilteredValue = (pumpValue, questionId) => {
+    if (!pumpValue) return null;
+
+    const selectedValue = selectedAnswers?.[questionId];
+
+    if (Array.isArray(pumpValue)) {
+      // Only keep the selected value(s)
+      if (selectedValue) {
+        return pumpValue.filter(val => 
+          val.toLowerCase().replace(/ /g, "_") === String(selectedValue).toLowerCase().replace(/ /g, "_")
+        ).join(", ");
+      }
+      return pumpValue.join(", ");
+    }
+
+    // For strings or numbers, just return the value
+    return pumpValue;
+  };
+
   return (
     <div className={`pumps-grid ${pumps.length > 3 ? 'carousel' : ''}`}>
       {pumps.map(pump => (
-        <div key={pump.id} className="pump-cards" >
+        <div key={pump.id} className="pump-cards">
           <img src={pump.imageUrl} alt={pump.name} />
           <h3>{pump.name}</h3>
-          {/* <p>{pump.description}</p> */}
+
           <ul className="specs-list">
             <li>
               <strong>Application:</strong>{" "}
-              <span>
-                {Array.isArray(pump.application)
-                  ? pump.application.join(", ")
-                  : pump.application}
-              </span>
+              <span>{getFilteredValue(pump.application, 'applicationType')}</span>
             </li>
-            {/* <li><strong>Application:</strong> <span>{pump.application}</span></li> */}
+            {pump.mainPurpose && <li><strong>Main Purpose:</strong> <span>{pump.mainPurpose.replace(/_/g, ' ')}</span></li>}
             <li><strong>Water Source:</strong> <span>{pump.waterSource}</span></li>
-            {/* ⭐ APPLICATION – ALWAYS SHOW */}
-            
             {pump.installLocation && <li><strong>Install Location:</strong> <span>{pump.installLocation.replace(/_/g, ' ')}</span></li>}
-            {pump.installLocationtype && <li><strong>Install Location Type:</strong> <span>{pump.installLocationtype.replace(/_/g, ' ')}</span></li>}
+            {pump.installLocationType && <li><strong>Install Location Type:</strong> <span>{pump.installLocationType.replace(/_/g, ' ')}</span></li>}
             {pump.headMin && <li><strong>Head:</strong> <span>{pump.headMin}-{pump.headMax} m</span></li>}
-            {pump.dischargeMin && <li><strong>Discharge:</strong> <span>{pump.dischargeMin}-{pump.dischargeMax} LPM</span></li>}
-            {pump.deliverySize && <li><strong>Delivery Size:</strong> <span>{pump.deliverySize.join(', ')}</span></li>}
-            {pump.numberofSB && <li><strong>No bathrooms:</strong> <span>{pump.numberofSB.join(', ')}</span></li>}
-            {pump.numberofSBS && <li><strong>Outlets Used Simultaneously:</strong> <span>{pump.numberofSBS.join(', ')}</span></li>}
-            {pump.pumpHp && <li><strong>Pump HP:</strong> <span>{pump.pumpHp.join(', ')}</span></li>}
-            {pump.pumpTankCapacity && <li><strong>Pump Tank Capacity:</strong> <span>{pump.pumpTankCapacity.join(', ')}</span></li>}
-            {pump.phase && <li><strong>Phase:</strong> <span>{pump.phase.replace(/_/g, ' ')}</span></li>}
-            {pump.sandorsilt && <li><strong>Sand or Silt:</strong> <span>{pump.sandorsilt.replace(/_/g, ' ')}</span></li>}
-            {pump.depthMin && <li><strong>Depth:</strong> <span>{pump.depthMin}-{pump.depthMax} m</span></li>}
             {pump.lpmMin && <li><strong>LPM:</strong> <span>{pump.lpmMin}-{pump.lpmMax} L/min</span></li>}
-            {pump.borewellSize && <li><strong>Borewell Size:</strong> <span>{pump.borewellSize.replace(/_/g, '')}</span></li>}
-            {pump.totalHeadMin && <li><strong>Total Head:</strong> <span>{pump.totalHeadMin}-{pump.totalHeadMax} m</span></li>}
+            {pump.deliverySize && <li><strong>Delivery Size:</strong> <span>{getFilteredValue(pump.deliverySize, 'deliverySize')}</span></li>}
+            {pump.numberofSB && <li><strong>No bathrooms:</strong> <span>{getFilteredValue(pump.numberofSB, 'numberofSB')}</span></li>}
+            {pump.numberofSBS && <li><strong>Outlets Used Simultaneously:</strong> <span>{getFilteredValue(pump.numberofSBS, 'numberofSBS')}</span></li>}
+            {pump.pumpHp && <li><strong>Pump HP:</strong> <span>{getFilteredValue(pump.pumpHp, 'pumpHp')}</span></li>}
+            {pump.pumpTankCapacity && <li><strong>Pump Tank Capacity:</strong> <span>{getFilteredValue(pump.pumpTankCapacity, 'pumpTankCapacity')}</span></li>}
+            {pump.phase && <li><strong>Phase:</strong> <span>{getFilteredValue(pump.phase, 'domesticUse_borewell_submersible_phase')?.replace(/_/g, ' ')}</span></li>}
+            {pump.sandorsilt && <li><strong>Sand or Silt:</strong> <span>{getFilteredValue(pump.sandorsilt, 'domesticUse_borewell_submersible_sand_or_silt')?.replace(/_/g, ' ')}</span></li>}
+            {pump.borewellSize && <li><strong>Borewell Size:</strong> <span>{getFilteredValue(pump.borewellSize, 'domesticUse_borewell_submersible_borewellSize')}</span></li>}
 
-            {/* Add more pump specific details here based on your product data */}
+            {/* Add more pump specific details here */}
           </ul>
+
           <button className="view-details-button">View Details</button>
         </div>
       ))}

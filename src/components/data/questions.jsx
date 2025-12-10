@@ -6,7 +6,7 @@ export const pumpSelectionQuestions = [
     options: [
       { id: 'Domestic', label: 'Domestic Use (Home, Garden, Water Tanks.)', nextSection: 'domesticUse' },
       { id: 'Agricultural', label: 'Agricultural Use (Irrigation, Open Well, Borewell.)', nextSection: 'agriculturalUse' },
-      { id: 'commercial', label: 'Commercial/Industrial Use (Utility Water Pumping, Car Wash, Pressure Boosting.)', nextSection: 'commercialUse' },
+      { id: 'Commercial/Industrial', label: 'Commercial/Industrial Use (Utility Water Pumping, Car Wash, Pressure Boosting.)', nextSection: 'commercialUse' },
       { id: 'Waste Water', label: 'Wastewater and Drainage Applications.', nextSection: 'wastewaterUse' },
     ],
   },
@@ -319,17 +319,19 @@ export const pumpSelectionQuestions = [
 // --- Submersible Borewell Three Phase Questions ---
 
 {
-    id: 'domesticUse_borewell_submersible_borewellSize',
+    id: 'domesticUse_borewell_submersible_borewellSize_3phase',
     question: 'What is the size of your bore well?',
     section: 'domesticUse_borewell_submersible_3phase',
     options: [
-      { id: '3 inch', label: '3"' },
-      { id: '4inch_b_sub', label: '4"' },
-      { id: '6inch_b_sub', label: '6"' },
+      { id: '1 inch', label: '1"' },
+      { id: '1.25 inch', label: '1.25"' },
+      { id: '1.5 inch', label: '1.5"' },
+      { id: '2 inch', label: '2"' },
+      { id: '2.5 inch', label: '2.5"' },
     ],
   },
     {
-  id: 'domesticUse_borewell_submersible_sand_or_silt',
+  id: 'domesticUse_borewell_submersible_sand_or_silt_3phase',
   question: 'Is there a significantly high amount of Sand or Silt in your borewell water?',
   section: 'domesticUse_borewell_submersible_3phase',
   options: [
@@ -339,7 +341,7 @@ export const pumpSelectionQuestions = [
 },
 
 {
-  id: 'domesticUse_borewell_submersible_head',
+  id: 'domesticUse_borewell_submersible_head_3phase',
   question: 'What is the total head you want to pump the water in meters? ( Total head= Depth of Bore pump installation + height of the over head tank)',
   section: 'domesticUse_borewell_submersible_3phase',
   type: 'input',
@@ -349,7 +351,7 @@ export const pumpSelectionQuestions = [
 },
 
 {
-  id: 'domesticUse_borewell_submersible_discharge',
+  id: 'domesticUse_borewell_submersible_discharge_3phase',
   question: 'Any desired LPM? (in liters)',
   section: 'domesticUse_borewell_submersible_3phase',
   type: 'input',
@@ -491,9 +493,9 @@ export const pumpSelectionQuestions = [
     question: 'What is the Water Source?',
     section: 'agriculturalUse', 
     options: [
-      { id: 'openwell', label: 'Openwell', nextSection: 'agricultureUse_openwell' },
+      { id: 'Openwell', label: 'Openwell', nextSection: 'agricultureUse_openwell' },
       { id: 'Borewell', label: 'Borewell', nextSection: 'agricultureUse_borewell' },
-      { id: 'canalriverbed', label: 'Canal RiverBed', nextSection: 'agricultureUse_canalriverbed' },
+      { id: 'Canal RiverBed', label: 'Canal RiverBed', nextSection: 'agricultureUse_canalriverbed' },
     ],
   },
 
@@ -504,8 +506,8 @@ export const pumpSelectionQuestions = [
     question: 'What kind of power source is available?',
     section: 'agricultureUse_openwell',
     options: [
-      { id: '1phase_b_sub', label: '1 Phase', nextSection: 'agricultureUse_openwell_1phase' },
-      { id: '3phase_b_sub', label: '3 Phase', nextSection: 'agricultureUse_openwell_3phase' },
+      { id: '1 Phase', label: '1 Phase', nextSection: 'agricultureUse_openwell_1phase' },
+      { id: '3 Phase', label: '3 Phase', nextSection: 'agricultureUse_openwell_3phase' },
     ],
   },
 
@@ -516,34 +518,23 @@ export const pumpSelectionQuestions = [
     question: 'Type of Irrigation - Surface irrigation (Flooding, Water channels etc…), Sprinkler, Drip.',
     section: 'agricultureUse_openwell_1phase',
     options: [
-      { id: 'surface_irrigation', label: 'Surface Irrigation', nextSection: 'agricultureUse_openwell_surface_irrigation' },
-      { id: 'sprinkler', label: 'Sprinkler', nextSection: 'agricultureUse_openwell_sprinkler' },
-      { id: 'drip_irrigation', label: 'Drip Irrigation', nextSection: 'agricultureUse_openwell_drip_irrigation' },
+      { id: 'Surface Irrigation', label: 'Surface Irrigation', nextSection: 'agricultureUse_openwell_surface_irrigation_single_phase' },
+      { id: 'Sprinkler', label: 'Sprinkler', nextSection: 'agricultureUse_openwell_sprinkler' },
+      { id: 'Drip Irrigation', label: 'Drip Irrigation', nextSection: 'agricultureUse_openwell_drip_irrigation' },
     ],
   },
 
 
   
 
-  //------------- 3 Phase QUESTION SECTION ----------------//
-
-  {
-    id: 'agricultureUse_openwell_installLocation',
-    question: 'Type of Irrigation - Surface irrigation (Flooding, Water channels etc…), Sprinkler, Drip.',
-    section: 'agricultureUse_openwell_3phase',
-    options: [
-      { id: 'surface_irrigation', label: 'Surface Irrigation', nextSection: 'agricultureUse_openwell_surface_irrigation' },
-      { id: 'sprinkler', label: 'Sprinkler', nextSection: 'agricultureUse_openwell_sprinkler' },
-      { id: 'drip_irrigation', label: 'Drip Irrigation', nextSection: 'agricultureUse_openwell_drip_irrigation' },
-    ],
-  },
+ 
   
   //------------- AGRI HEAD & DISCHARGE & DELIVERY SIZE QUESTION SECTION ----------------//
 
   {
     id: 'agricultureUse_openwell_surface_irrigation_head',
     question: 'What is the total head required (in mts)',
-    section: 'agricultureUse_openwell_surface_irrigation',
+    section: 'agricultureUse_openwell_surface_irrigation_single_phase',
     type: 'input',
     unit: 'meters',
     min: 1,
@@ -552,7 +543,7 @@ export const pumpSelectionQuestions = [
   {
     id: 'agricultureUse_openwell_surface_irrigation_discharge',
     question: 'What is the discharge required?',
-    section: 'agricultureUse_openwell_surface_irrigation',
+    section: 'agricultureUse_openwell_surface_irrigation_single_phase',
     type: 'input',
     unit: 'LPM',
     min: 1,
@@ -562,12 +553,12 @@ export const pumpSelectionQuestions = [
   {
       id: 'agricultureUse_openwell_surface_irrigation_borewellSize',
       question: 'What is the desired Delivery size?',
-      section: 'agricultureUse_openwell_surface_irrigation',
+      section: 'agricultureUse_openwell_surface_irrigation_single_phase',
       options: [
-        { id: '1inch_sur_ir', label: '1"' },
-        { id: '1.5inch_sur_ir', label: '1.5"' },
-        { id: '2inch_sur_ir', label: '2"' },
-        { id: '2.5inch_sur_ir', label: '2.5"' },
+        { id: '1 inch', label: '1"' },
+        { id: '1.5 inch', label: '1.5"' },
+        { id: '2 inch', label: '2"' },
+        { id: '2.5 inch', label: '2.5"' },
       ],
     },
 
@@ -576,13 +567,13 @@ export const pumpSelectionQuestions = [
   //------------- Agriculture_Borewell ----------------//
 
     {
-    id: 'agricultureUse_borewell_installLocation',
+    id: 'agricultureUse_borewell_installLocation_type',
     question: 'Type Of Irrigation- Surface Irrigation,Sprinkler, Drip',
     section: 'agricultureUse_borewell',
     options: [
       { id: 'Surface Irrigation', label: 'Surface Irrigation', nextSection: 'agricultureUse_borewell_surface_irrigation' },
-      { id: 'sprinkler', label: 'Sprinkler', nextSection: 'agricultureUse_borewell_sprinkler' },
-      { id: 'drip_irrigation', label: 'Drip Irrigation', nextSection: 'agricultureUse_borewell_drip_irrigation' },
+      { id: 'Sprinkler', label: 'Sprinkler', nextSection: 'agricultureUse_borewell_sprinkler' },
+      { id: 'Drip Irrigation', label: 'Drip Irrigation', nextSection: 'agricultureUse_borewell_drip_irrigation' },
     ],
   },
 
@@ -590,7 +581,7 @@ export const pumpSelectionQuestions = [
   //------------- Agriculture_Borewell_Submersible ----------------//
 
   {
-    id: 'agricultureUse_borewell_installLocation_type',
+    id: 'agricultureUse_borewell_installLocation',
     question: 'Where do you want to install the pump? (Inside Borewell, Surface)',
     section: 'agricultureUse_borewell_surface_irrigation',
     options: [
@@ -629,8 +620,10 @@ export const pumpSelectionQuestions = [
     ],
    },
 
+   //------------- Agriculture_Borewell_Submersible_1Phase ----------------//
+
    {
-    id: 'agricultureUse_borewell_submersible_head',
+    id: 'agricultureUse_borewell_submersible_head_1phase',
     question: 'What is the total head you want to pump the water in meters?',
     section: 'agricultureUse_borewell_submersible_1phase',
     type: 'input',
@@ -640,7 +633,7 @@ export const pumpSelectionQuestions = [
   },
 
   {
-    id: 'agricultureUse_borewell_submersible_discharge',
+    id: 'agricultureUse_borewell_submersible_discharge_1phase',
     question: 'Any desired LPM? (in liters)',
     section: 'agricultureUse_borewell_submersible_1phase',
     type: 'input',
@@ -649,7 +642,42 @@ export const pumpSelectionQuestions = [
     max: 450,
   },
 
+//------------- Agriculture_Borewell_Submersible_3Phase ----------------//
+
+{
+    id: 'agricultureUse_borewell_submersible_head_3phase',
+    question: 'What is the total head you want to pump the water in meters?',
+    section: 'agricultureUse_borewell_submersible_3phase',
+    type: 'input',
+    unit: 'meters',
+    min: 1,
+    max: 250,
+  },
+
+  {
+    id: 'agricultureUse_borewell_submersible_discharge_3phase',
+    question: 'Any desired LPM? (in liters)',
+    section: 'agricultureUse_borewell_submersible_3phase',
+    type: 'input',
+    unit: 'LPM',
+    min: 1,
+    max: 450,
+  },
+
   //------------- Agriculture_Borewell_Surface ----------------//
+
+  //------------- 3 Phase QUESTION SECTION ----------------//
+
+  {
+    id: 'agricultureUse_openwell_installLocation',
+    question: 'Type of Irrigation - Surface irrigation (Flooding, Water channels etc…), Sprinkler, Drip.',
+    section: 'agricultureUse_openwell_3phase',
+    options: [
+      { id: 'Surface Irrigation', label: 'Surface Irrigation', nextSection: 'agricultureUse_openwell_surface_irrigation' },
+      { id: 'sprinkler', label: 'Sprinkler', nextSection: 'agricultureUse_openwell_sprinkler' },
+      { id: 'drip_irrigation', label: 'Drip Irrigation', nextSection: 'agricultureUse_openwell_drip_irrigation' },
+    ],
+  },
 
   {
     id: 'agricultureUse_borewell_surface_powersource',
@@ -660,6 +688,8 @@ export const pumpSelectionQuestions = [
       { id: '3phase_b_sur', label: '3 Phase', nextSection: 'agricultureUse_borewell_surface_3phase' },
     ],
    },
+
+
    {
   id: 'agricultureUse_borewell_surface_depth',
   question: 'What is the total depth you want to draw water from the borewell? In meters',
@@ -746,7 +776,7 @@ export const pumpSelectionQuestions = [
     options: [
       { id: 'sumpTank', label: 'Sump/Tank', nextSection: 'commercialUse_sumpTank' },
       { id: 'openwell', label: 'Openwell (Well)', nextSection: 'commercialUse_openwell' },
-      { id: 'borewell', label: 'Borewell', nextSection: 'commercialUse_borewell' },
+      { id: 'Borewell', label: 'Borewell', nextSection: 'commercialUse_borewell' },
     ],
   },
 
@@ -912,7 +942,7 @@ export const pumpSelectionQuestions = [
   section: 'commercialUse_borewell',
   options: [
     { id: 'surface_borewell', label: 'Surface', nextSection: 'commercialUse_borewell_surface' },
-    { id: 'Submersible_Borewell', label: 'Inside the borewell (Submersible)', nextSection: 'commercialUse_borewell_submersible' },
+    { id: 'Submersible Borewell', label: 'Inside the borewell (Submersible)', nextSection: 'commercialUse_borewell_submersible' },
   ],
 },
 
@@ -923,8 +953,8 @@ export const pumpSelectionQuestions = [
   question: 'Do you need a 1 phase or 3 phase design? (Single phase recommended for Household and Domestic applications)',
   section: 'commercialUse_borewell_surface',
   options: [
-    { id: '1phase_bw_sur', label: '1 Phase', nextSection: 'commercialUse_borewell_surface_1phase' },
-    { id: '3phase_bw_sur', label: '3 Phase', nextSection: 'commercialUse_borewell_surface_3phase' },
+    { id: '1 Phase', label: '1 Phase', nextSection: 'commercialUse_borewell_surface_1phase' },
+    { id: '3 Phase', label: '3 Phase', nextSection: 'commercialUse_borewell_surface_3phase' },
   ],
 },
 
@@ -1023,7 +1053,8 @@ export const pumpSelectionQuestions = [
     question: 'What is the size of your bore well?',
     section: 'commercialUse_submersible_surface_1phase',
     options: [
-      { id: '3 inch', label: '3"' },
+      { id: '1.5 inch', label: '1.5"' },
+      { id: '2 inch', label: '2"' },
       { id: '4 inch', label: '4"' },
       { id: '6 inch', label: '6"' },
     ],
@@ -1066,7 +1097,8 @@ export const pumpSelectionQuestions = [
     question: 'What is the size of your bore well?',
     section: 'commercialUse_submersible_surface_3phase',
     options: [
-      { id: '3 inch', label: '3"' },
+      { id: '1.5 inch', label: '1.5"' },
+      { id: '2 inch', label: '2"' },
       { id: '4 inch', label: '4"' },
       { id: '6 inch', label: '6"' },
     ],
