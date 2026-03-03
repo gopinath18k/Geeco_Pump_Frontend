@@ -32,8 +32,15 @@ function PumpSelectionTool() {
         return pump.application === answers.applicationType;
       });
     }
+
+    
     if (answers.domesticUse_waterSource) {
-      tempPumps = tempPumps.filter(pump => pump.waterSource === answers.domesticUse_waterSource);
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.waterSource)) {
+          return pump.waterSource.includes(answers.domesticUse_waterSource);
+        }
+        return pump.waterSource === answers.domesticUse_waterSource;
+      });
     }
 
     // Domestic Question SumpTank surface//
@@ -71,53 +78,75 @@ function PumpSelectionTool() {
 
     // --- Domestic Question Openwell Surface ---
     
-    if (answers.domesticUse_openwell_installLocation) {
+    
+
+     if (answers.domesticUse_openwell_installLocation === 'Surface Openwell') {
+
+      
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.installLocation)) {
+          return pump.installLocation.includes('Surface Openwell');
+        }
+        return pump.installLocation === 'Surface Openwell';
+      });
+
+     
+
+      if (answers.domesticUse_openwell_surface_head) {
+        const headValue = parseInt(answers.domesticUse_openwell_surface_head);
+        tempPumps = tempPumps.filter(
+          pump => headValue >= pump.headMin && headValue <= pump.headMax
+        );
+      }
+
+      if (answers.domesticUse_openwell_surface_discharge) {
+        const dischargeValue = parseInt(answers.domesticUse_openwell_surface_discharge);
+        tempPumps = tempPumps.filter(
+          pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+        );
+      }
+
+      if (answers.domesticUse_openwell_surface_deliverySize) {
+          tempPumps = tempPumps.filter(pump => {
+            if (!pump.deliverySize) return false;  
+            if (Array.isArray(pump.deliverySize)) {
+              return pump.deliverySize.includes(answers.domesticUse_openwell_surface_deliverySize);
+            }
+            return pump.deliverySize === answers.domesticUse_openwell_surface_deliverySize;  
+          });
+        }
+    }
+
+    // --- Domestic Question Openwell Submerged --- //
+
+       if (answers.domesticUse_openwell_installLocation) {
       tempPumps = tempPumps.filter(
         pump => pump.installLocation === answers.domesticUse_openwell_installLocation
       );
     }
 
-    if (answers.domesticUse_openwell_surface_head) {
-      const headValue = parseFloat(answers.domesticUse_openwell_surface_head);
-      tempPumps = tempPumps.filter(
-        pump => headValue >= pump.headMin && headValue <= pump.headMax
-      );
-    }
+    
+      if (answers.domesticUse_openwell_submerged_head) {
+        const headValue = parseFloat(answers.domesticUse_openwell_submerged_head);  
+        tempPumps = tempPumps.filter(
+          pump => headValue >= pump.headMin && headValue <= pump.headMax
+        );
+      }
 
-    if (answers.domesticUse_openwell_surface_discharge) {
-      const dischargeValue = parseFloat(answers.domesticUse_openwell_surface_discharge);
-      tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax
-      );
-    }
+      
+      if (answers.domesticUse_openwell_submerged_discharge) {
+        const dischargeValue = parseFloat(answers.domesticUse_openwell_submerged_discharge);  
+        tempPumps = tempPumps.filter(
+          pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+        );
+      }
 
-    if (answers.domesticUse_openwell_surface_deliverySize) {
-      tempPumps = tempPumps.filter(
-        pump => pump.deliverySize?.includes(answers.domesticUse_openwell_surface_deliverySize)
-      );
-    }
-
-    // --- Domestic Question Openwell Submerged ---
-
-    if (answers.domesticUse_openwell_Submerged_head) {
-      const headValue = parseFloat(answers.domesticUse_openwell_Submerged_head);
-      tempPumps = tempPumps.filter(
-        pump => headValue >= pump.headMin && headValue <= pump.headMax
-      );
-    }
-
-    if (answers.domesticUse_openwell_Submerged_discharge) {
-      const dischargeValue = parseFloat(answers.domesticUse_openwell_Submerged_discharge);
-      tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax
-      );
-    }
-
-    if (answers.domesticUse_openwell_surface_deliverySize) {
-      tempPumps = tempPumps.filter(
-        pump => pump.deliverySize?.includes(answers.domesticUse_openwell_surface_deliverySize)
-      );
-    }
+      
+      if (answers.domesticUse_openwell_submerged_deliverySize) {
+        tempPumps = tempPumps.filter(
+          pump => pump.deliverySize?.includes(answers.domesticUse_openwell_submerged_deliverySize)  
+        );
+      }
 
 
       // Domestic Question Borewell //
@@ -234,30 +263,59 @@ function PumpSelectionTool() {
 
     //--------- Agriculture Openwell Section Question -------------//
 
-    if (answers.agricultureUse_waterSource) {
-      tempPumps = tempPumps.filter(pump => pump.waterSource === answers.agricultureUse_waterSource);
-    }
+    
+    // if (answers.agricultureUse_waterSource) {
+    //     const selectedSource = answers.agricultureUse_waterSource
+    //       .toLowerCase()
+    //       .trim();
+
+    //     tempPumps = tempPumps.filter(pump => {
+    //       if (Array.isArray(pump.waterSource)) {
+    //         return pump.waterSource.some(
+    //           source => source.toLowerCase().trim() === selectedSource
+    //         );
+    //       }
+
+    //       return (
+    //         pump.waterSource &&
+    //         pump.waterSource.toLowerCase().trim() === selectedSource
+    //       );
+    //     });
+    //   }
     if (answers.agricultureUse_openwell_powersource) {
       tempPumps = tempPumps.filter(
         pump => pump.phase === answers.agricultureUse_openwell_powersource
       );
     }
-    if (answers.agricultureUse_openwell_installLocation) {
+    
+    if (answers.agricultureUse_openwell_installLocation === 'Surface Openwell') {
+
+      
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.installLocation)) {
+          return pump.installLocation.includes('Surface Openwell');
+        }
+        return pump.installLocation === 'Surface Openwell';
+      });
+
+     
+
+      if (answers.agricultureUse_openwell_installLocation_type) {
       tempPumps = tempPumps.filter(
-        pump => pump.installLocation === answers.agricultureUse_openwell_installLocation
+        pump => pump.installLocationType === answers.agricultureUse_openwell_installLocation_type
       );
     }
      if (answers.agricultureUse_openwell_surface_irrigation_head) {
       const headValue = parseFloat(answers.agricultureUse_openwell_surface_irrigation_head);
       tempPumps = tempPumps.filter(
-        pump => headValue >= pump.totalHeadMin && headValue <= pump.totalHeadMax
+        pump => headValue >= pump.headMin && headValue <= pump.headMax
       );
     }
 
     if (answers.agricultureUse_openwell_surface_irrigation_discharge) {
       const dischargeValue = parseFloat(answers.agricultureUse_openwell_surface_irrigation_discharge);
       tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax
+        pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
       );
     }
     if (answers.agricultureUse_openwell_surface_irrigation_borewellSize) {
@@ -265,6 +323,8 @@ function PumpSelectionTool() {
         pump => pump.deliverySize?.includes(answers.agricultureUse_openwell_surface_irrigation_borewellSize)
       );
     }
+    }
+    
 
 
 
@@ -272,88 +332,193 @@ function PumpSelectionTool() {
 
     //--------- Agriculture Borewell Section Question -------------//
 
-    // Submersible //
+// -------------------- AGRICULTURE → BOREWELL -------------------- //
 
-    if (answers.agricultureUse_borewell_installLocation_type) {
-      tempPumps = tempPumps.filter(
-        pump => pump.installLocationType === answers.agricultureUse_borewell_installLocation_type
-      );
-    }
-    if (answers.agricultureUse_borewell_installLocation) {
-      tempPumps = tempPumps.filter(
-        pump => pump.installLocation === answers.agricultureUse_borewell_installLocation
-      );
-    }
-    if (answers.agricultureUse_borewell_submersible_borewellSize) {
-      tempPumps = tempPumps.filter(
-        pump => pump.borewellSize?.includes(answers.agricultureUse_borewell_submersible_borewellSize)
-      );
-    }
-    if (answers.agricultureUse_borewell_submersible_sand_or_silt) {
-      tempPumps = tempPumps.filter(
-        pump => pump.sandorsilt === answers.agricultureUse_borewell_submersible_sand_or_silt
-      );
-    }
-    if (answers.agricultureUse_borewell_submersible_powersource) {
-      tempPumps = tempPumps.filter(
-        pump => pump.phase === answers.agricultureUse_borewell_submersible_powersource
-      );
-    }
-    //------------- Agriculture_Borewell_Submersible_1Phase ----------------//
+    if (answers.agricultureUse_waterSource) {
+      const selectedSource = answers.agricultureUse_waterSource
+        .toLowerCase()
+        .trim();
 
-    if (answers.agricultureUse_borewell_submersible_head_1phase) {
-      const headValue = parseFloat(answers.agricultureUse_borewell_submersible_head_1phase);
-      tempPumps = tempPumps.filter(
-        pump => headValue >= pump.headMin && headValue <= pump.headMax
-      );
-    }
-    if (answers.agricultureUse_borewell_submersible_discharge_1phase) {
-      const dischargeValue = parseFloat(answers.agricultureUse_borewell_submersible_discharge_1phase);
-      tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+      tempPumps = tempPumps.filter(pump =>
+        Array.isArray(pump.waterSource)
+          ? pump.waterSource.some(
+              source => source.toLowerCase().trim() === selectedSource
+            )
+          : pump.waterSource?.toLowerCase().trim() === selectedSource
       );
     }
 
-    //------------- Agriculture_Borewell_Submersible_3Phase ----------------//
-
-    if (answers.agricultureUse_borewell_submersible_head_3phase) {
-      const headValue = parseFloat(answers.agricultureUse_borewell_submersible_head_3phase);
-      tempPumps = tempPumps.filter(
-        pump => headValue >= pump.headMin && headValue <= pump.headMax
-      );
-    }
-    if (answers.agricultureUse_borewell_submersible_discharge_3phase) {
-      const dischargeValue = parseFloat(answers.agricultureUse_borewell_submersible_discharge_3phase);
-      tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
-      );
-    }
-
-    // Surface //
     
-    if (answers.agricultureUse_borewell_surface_powersource) {
+    if (answers.agricultureUse_borewell_installLocation_type) {
+      const selected = answers.agricultureUse_borewell_installLocation_type
+        .toLowerCase()
+        .trim();
+
       tempPumps = tempPumps.filter(
-        pump => pump.phase === answers.agricultureUse_borewell_surface_powersource
+        pump =>
+          pump.installLocationType?.toLowerCase().trim() === selected
       );
     }
-    if (answers.agricultureUse_borewell_surface_depth) {
-      const depthValue = parseFloat(answers.agricultureUse_borewell_surface_depth);
-      tempPumps = tempPumps.filter(
-        pump => depthValue >= pump.depthMin && depthValue <= pump.depthMax
-      );
+
+    
+    if (answers.agricultureUse_borewell_installLocation) {
+        const selectedLocation =
+          answers.agricultureUse_borewell_installLocation
+            .toLowerCase()
+            .trim();
+
+        tempPumps = tempPumps.filter(pump => {
+
+          if (!pump.installLocation) return false;
+
+          
+          if (Array.isArray(pump.installLocation)) {
+            return pump.installLocation.some(
+              loc => loc.toLowerCase().trim() === selectedLocation
+            );
+          }
+
+          
+          return pump.installLocation.toLowerCase().trim() === selectedLocation;
+        });
+      }
+
+    // -------------------- SUBMERSIBLE BOREWELL -------------------- //
+
+    if (
+      answers.agricultureUse_borewell_installLocation ===
+      'Submersible Borewell'
+    ) {
+
+      
+      if (answers.agricultureUse_borewell_deliverySize) {
+        const selectedDelivery =
+          answers.agricultureUse_borewell_deliverySize
+            .toLowerCase()
+            .trim();
+
+        tempPumps = tempPumps.filter(pump =>
+          pump.deliverySize?.toLowerCase().trim() === selectedDelivery
+        );
+      }
+
+      
+      if (answers.agricultureUse_borewell_submersible_sand_or_silt) {
+        tempPumps = tempPumps.filter(
+          pump =>
+            pump.sandorsilt ===
+            answers.agricultureUse_borewell_submersible_sand_or_silt
+        );
+      }
+
+      
+      if (answers.agricultureUse_borewell_submersible_powersource) {
+        tempPumps = tempPumps.filter(
+          pump =>
+            pump.phase ===
+            answers.agricultureUse_borewell_submersible_powersource
+        );
+      }
+
+      
+      const headValue =
+        parseFloat(
+          answers.agricultureUse_borewell_submersible_head_1phase ||
+          answers.agricultureUse_borewell_submersible_head_3phase
+        );
+
+      if (!isNaN(headValue)) {
+        tempPumps = tempPumps.filter(
+          pump =>
+            headValue >= pump.headMin &&
+            headValue <= pump.headMax
+        );
+      }
+
+      
+      const dischargeValue =
+        parseFloat(
+          answers.agricultureUse_borewell_submersible_discharge_1phase ||
+          answers.agricultureUse_borewell_submersible_discharge_3phase
+        );
+
+      if (!isNaN(dischargeValue)) {
+        tempPumps = tempPumps.filter(
+          pump =>
+            dischargeValue >= pump.lpmMin &&
+            dischargeValue <= pump.lpmMax
+        );
+      }
     }
-    if (answers.agricultureUse_borewell_surface_head) {
-      const headValue = parseFloat(answers.agricultureUse_borewell_surface_head);
-      tempPumps = tempPumps.filter(
-        pump => headValue >= pump.totalHeadMin && headValue <= pump.totalHeadMax
-      );
+
+    // -------------------- SURFACE BOREWELL -------------------- //
+    
+    if (
+      answers.agricultureUse_borewell_installLocation ===
+      'Surface Borewell'
+    ) {
+
+      
+      // if (answers.agricultureUse_borewell_deliverySize) {
+      //   const selectedDelivery =
+      //     answers.agricultureUse_borewell_deliverySize
+      //       .toLowerCase()
+      //       .trim();
+
+      //   tempPumps = tempPumps.filter(pump =>
+      //     pump.deliverySize?.toLowerCase().trim() === selectedDelivery
+      //   );
+      // }
+
+      
+      // if (answers.agricultureUse_borewell_submersible_sand_or_silt) {
+      //   tempPumps = tempPumps.filter(
+      //     pump =>
+      //       pump.sandorsilt ===
+      //       answers.agricultureUse_borewell_submersible_sand_or_silt
+      //   );
+      // }
+
+      
+      if (answers.agricultureUse_borewell_surface_powersource) {
+        tempPumps = tempPumps.filter(
+          pump =>
+            pump.phase ===
+            answers.agricultureUse_borewell_surface_powersource
+        );
+      }
+
+      
+      const headValue =
+        parseFloat(
+          answers.agricultureUse_borewell_surface_head_1phase ||
+          answers.agricultureUse_borewell_surface_head_3phase
+        );
+
+      if (!isNaN(headValue)) {
+        tempPumps = tempPumps.filter(
+          pump =>
+            headValue >= pump.headMin &&
+            headValue <= pump.headMax
+        );
+      }
+
+      
+      const dischargeValue =
+        parseFloat(
+          answers.agricultureUse_borewell_surface_discharge_1phase ||
+          answers.agricultureUse_borewell_surface_discharge_3phase
+        );
+
+      if (!isNaN(dischargeValue)) {
+        tempPumps = tempPumps.filter(
+          pump =>
+            dischargeValue >= pump.lpmMin &&
+            dischargeValue <= pump.lpmMax
+        );
+      }
     }
-    if (answers.agricultureUse_borewell_surface_discharge) {
-      const dischargeValue = parseFloat(answers.agricultureUse_borewell_surface_discharge);
-      tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax
-      );
-    }
+
 
 
     // -------------- Commercial / Industrial Pump Question ---------------- //
@@ -365,7 +530,12 @@ function PumpSelectionTool() {
       tempPumps = tempPumps.filter(pump => pump.mainPurpose === answers.commercialUse_mainPurpose);
     }
     if (answers.commercialUse_waterSource) {
-      tempPumps = tempPumps.filter(pump => pump.waterSource === answers.commercialUse_waterSource);
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.waterSource)) {
+          return pump.waterSource.includes(answers.commercialUse_waterSource);
+        }
+        return pump.waterSource === answers.commercialUse_waterSource;
+      });
     }
     if (answers.commercialUse_sumpTank_installLocation) {
       tempPumps = tempPumps.filter(
@@ -402,109 +572,207 @@ function PumpSelectionTool() {
 
       // Commercial / Industrial Question Openwell surface //
 
-    if (answers.commercialUse_openwell_installLocation) {
-      tempPumps = tempPumps.filter(
-        pump => pump.installLocation === answers.commercialUse_openwell_installLocation
-      );
-    }
-    if (answers.commercialUse_openwell_surface_head) {
-      const headValue = parseInt(answers.commercialUse_openwell_surface_head);
-      tempPumps = tempPumps.filter(pump => headValue >= pump.headMin && headValue <= pump.headMax);
-    }
-    if (answers.commercialUse_openwell_surface_discharge) {
-      const dischargeValue = parseInt(answers.commercialUse_openwell_surface_discharge);
-      tempPumps = tempPumps.filter(pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax);
-    }
-    if (answers.commercialUse_openwell_surface_deliverySize) {
-      tempPumps = tempPumps.filter(pump => pump.deliverySize.includes(answers.commercialUse_openwell_surface_deliverySize));
+    
+    
+    if (answers.commercialUse_openwell_installLocation === 'Surface Openwell') {
+
+      
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.installLocation)) {
+          return pump.installLocation.includes('Surface Openwell');
+        }
+        return pump.installLocation === 'Surface Openwell';
+      });
+
+     
+
+      if (answers.commercialUse_openwell_surface_head) {
+        const headValue = parseInt(answers.commercialUse_openwell_surface_head);
+        tempPumps = tempPumps.filter(
+          pump => headValue >= pump.headMin && headValue <= pump.headMax
+        );
+      }
+
+      if (answers.commercialUse_openwell_surface_discharge) {
+        const dischargeValue = parseInt(answers.commercialUse_openwell_surface_discharge);
+        tempPumps = tempPumps.filter(
+          pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+        );
+      }
+
+      if (answers.commercialUse_openwell_surface_deliverySize) {
+        tempPumps = tempPumps.filter(
+          pump => pump.deliverySize.includes(
+            answers.commercialUse_openwell_surface_deliverySize
+          )
+        );
+      }
     }
 
 
     // Commercial / Industrial Question Openwell submerged//
 
-    if (answers.commercialUse_openwell_submerged_head) {
-      const headValue = parseInt(answers.commercialUse_openwell_submerged_head);
-      tempPumps = tempPumps.filter(pump => headValue >= pump.headMin && headValue <= pump.headMax);
-    }
-    if (answers.commercialUse_openwell_submerged_discharge) {
-      const dischargeValue = parseInt(answers.commercialUse_openwell_submerged_discharge);
-      tempPumps = tempPumps.filter(pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax);
-    }
-    if (answers.commercialUse_openwell_submerged_deliverySize) {
-      tempPumps = tempPumps.filter(pump => pump.deliverySize.includes(answers.commercialUse_openwell_submerged_deliverySize));
+    if (answers.commercialUse_openwell_installLocation === 'Submersible Openwell') {
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.installLocation)) {
+          return pump.installLocation.includes('Submersible Openwell');
+        }
+        return pump.installLocation === 'Submersible Openwell';
+      });
+      if (answers.commercialUse_openwell_submerged_head) {
+        const headValue = parseInt(answers.commercialUse_openwell_submerged_head);
+        tempPumps = tempPumps.filter(
+          pump => headValue >= pump.headMin && headValue <= pump.headMax
+        );
+      }
+
+      if (answers.commercialUse_openwell_submerged_discharge) {
+        const dischargeValue = parseInt(answers.commercialUse_openwell_submerged_discharge);
+        tempPumps = tempPumps.filter(
+          pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+        );
+      }
+
+      if (answers.commercialUse_openwell_submerged_deliverySize) {
+        tempPumps = tempPumps.filter(
+          pump => pump.deliverySize.includes(answers.commercialUse_openwell_submerged_deliverySize)
+        );
+      }
     }
 
 
-    // Commercial / Industrial Question Borewell surface //
+    // --- Commercial Question Borewell Surface --- //
 
-    if (answers.commercialUse_borewell_installLocation) {
-      tempPumps = tempPumps.filter(
-        pump => pump.installLocation === answers.commercialUse_borewell_installLocation
-      );
-    }
-    if (answers.commercialUse_borewell_surface_phase) {
-      tempPumps = tempPumps.filter(
-        pump => pump.phase === answers.commercialUse_borewell_surface_phase
-      );
-    }
+if (answers.commercialUse_borewell_installLocation === 'Surface Borewell') {
 
-    if (answers.commercialUse_borewell_surface_depth) {
-      const depthValue = parseFloat(answers.commercialUse_borewell_surface_depth);
-      tempPumps = tempPumps.filter(
-        pump => depthValue >= pump.depthMin && depthValue <= pump.depthMax
-      );
+  
+  tempPumps = tempPumps.filter(pump => {
+    if (!pump.installLocation) return false;
+    if (Array.isArray(pump.installLocation)) {
+      return pump.installLocation.includes('Surface Borewell');
     }
-     
-    if (answers.commercialUse_borewell_surface_head) {
-      const headValue = parseFloat(answers.commercialUse_borewell_surface_head);
-      tempPumps = tempPumps.filter(
-        pump => headValue >= pump.headMin && headValue <= pump.headMax
-      );
-    }
+    return pump.installLocation === 'Surface Borewell';
+  });
 
-    if (answers.commercialUse_borewell_surface_discharge) {
-      const dischargeValue = parseFloat(answers.commercialUse_borewell_surface_discharge);
-      tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
-      );
-    }
+  
+  if (answers.commercialUse_borewell_surface_phase) {
+    tempPumps = tempPumps.filter(
+      pump => pump.phase === answers.commercialUse_borewell_surface_phase
+    );
+  }
+
+ 
+  const sandSilt =
+    answers.commercialUse_borewell_submersible_sand_or_silt_1phase ||
+    answers.commercialUse_borewell_submersible_sand_or_silt_3phase;
+  if (sandSilt) {
+    tempPumps = tempPumps.filter(pump => pump.sandorsilt === sandSilt);
+  }
+
+  
+  const borewellSize =
+    answers.commercialUse_borewell_submersible_borewellSize_1phase ||
+    answers.commercialUse_borewell_submersible_borewellSize_3phase;
+  if (borewellSize) {
+    tempPumps = tempPumps.filter(pump => {
+      const size = pump.borewellSize || pump.deliverySize;
+      if (!size) return false;
+      
+      if (Array.isArray(size)) return size.includes(borewellSize);
+      return size === borewellSize;
+    });
+  }
+
+  
+  const headValue = parseFloat(
+    answers.commercialUse_borewell_surface_head_1phase ||
+    answers.commercialUse_borewell_surface_head_3phase
+  );
+  if (!isNaN(headValue)) {
+    tempPumps = tempPumps.filter(
+      pump => headValue >= pump.headMin && headValue <= pump.headMax
+    );
+  }
+
+  
+  const dischargeValue = parseFloat(
+    answers.commercialUse_borewell_surface_discharge_1phase ||
+    answers.commercialUse_borewell_surface_discharge_3phase
+  );
+  if (!isNaN(dischargeValue)) {
+    tempPumps = tempPumps.filter(
+      pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+    );
+  }
+}
+    
+   
 
 
     // --- Commercial Question Borewell Submersible --- //
 
-    
-    if (answers.commercialUse_borewell_submersible_phase) {
-      tempPumps = tempPumps.filter(
-        pump => pump.phase === answers.commercialUse_borewell_submersible_phase
-      );
-    }
-    if (answers.commercialUse_borewell_submersible_sand_or_silt) {
-      tempPumps = tempPumps.filter(
-        pump => pump.sandorsilt === answers.commercialUse_borewell_submersible_sand_or_silt
-      );
-    }
+if (answers.commercialUse_borewell_installLocation === 'Submersible Borewell') {
 
-    if (answers.commercialUse_borewell_submersible_borewellSize) {
-      tempPumps = tempPumps.filter(
-        pump => pump.borewellSize.includes(answers.commercialUse_borewell_submersible_borewellSize)
-      );
+  
+  tempPumps = tempPumps.filter(pump => {
+    if (!pump.installLocation) return false;
+    if (Array.isArray(pump.installLocation)) {
+      return pump.installLocation.includes('Submersible Borewell');
     }
-   
-    if (answers.commercialUse_borewell_submersible_head) {
-      const headValue = parseFloat(answers.commercialUse_borewell_submersible_head);
-      tempPumps = tempPumps.filter(
-        pump => headValue >= pump.headMin && headValue <= pump.headMax
-      );
-    }
+    return pump.installLocation === 'Submersible Borewell';
+  });
 
-    if (answers.commercialUse_borewell_submersible_discharge) {
-      const dischargeValue = parseFloat(answers.commercialUse_borewell_submersible_discharge);
-      tempPumps = tempPumps.filter(
-        pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
-      );
-    }
+  
+  if (answers.commercialUse_borewell_submersible_phase) {
+    tempPumps = tempPumps.filter(
+      pump => pump.phase === answers.commercialUse_borewell_submersible_phase
+    );
+  }
 
+ 
+  const sandSilt =
+    answers.commercialUse_borewell_submersible_sand_or_silt_1phase ||
+    answers.commercialUse_borewell_submersible_sand_or_silt_3phase;
+  if (sandSilt) {
+    tempPumps = tempPumps.filter(pump => pump.sandorsilt === sandSilt);
+  }
 
+  
+  const borewellSize =
+    answers.commercialUse_borewell_submersible_borewellSize_1phase ||
+    answers.commercialUse_borewell_submersible_borewellSize_3phase;
+  if (borewellSize) {
+    tempPumps = tempPumps.filter(pump => {
+      const size = pump.borewellSize || pump.deliverySize;
+      if (!size) return false;
+      
+      if (Array.isArray(size)) return size.includes(borewellSize);
+      return size === borewellSize;
+    });
+  }
+
+  
+  const headValue = parseFloat(
+    answers.commercialUse_borewell_submersible_head_1phase ||
+    answers.commercialUse_borewell_submersible_head_3phase
+  );
+  if (!isNaN(headValue)) {
+    tempPumps = tempPumps.filter(
+      pump => headValue >= pump.headMin && headValue <= pump.headMax
+    );
+  }
+
+  
+  const dischargeValue = parseFloat(
+    answers.commercialUse_borewell_submersible_discharge_1phase ||
+    answers.commercialUse_borewell_submersible_discharge_3phase
+  );
+  if (!isNaN(dischargeValue)) {
+    tempPumps = tempPumps.filter(
+      pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+    );
+  }
+}
     
 
     // ---Commercial/Industrial BoreWell Section --- //
