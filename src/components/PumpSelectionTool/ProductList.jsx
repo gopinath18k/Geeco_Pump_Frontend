@@ -59,26 +59,28 @@ function ProductList({ pumps, selectedAnswers }) {
               </li>
             )}
             {pump.installLocation && (
-            <li>
-              <strong>Install Location:</strong>{" "}
-              <span>
-                {getFilteredValue(
-                  pump.installLocation,
-                  selectedAnswers?.agricultureUse_borewell_installLocation
-                    ? 'agricultureUse_borewell_installLocation'
-                    : selectedAnswers?.agricultureUse_openwell_installLocation
-                    ? 'agricultureUse_openwell_installLocation'
-                    : selectedAnswers?.commercialUse_borewell_installLocation
-                    ? 'commercialUse_borewell_installLocation'
-                    : selectedAnswers?.commercialUse_openwell_installLocation
-                    ? 'commercialUse_openwell_installLocation'
-                    : selectedAnswers?.domesticUse_openwell_installLocation  // added
-                    ? 'domesticUse_openwell_installLocation'
-                    : null
-                )}
-              </span>
-            </li>
-          )}
+              <li>
+                <strong>Install Location:</strong>{" "}
+                <span>
+                  {getFilteredValue(
+                    pump.installLocation,
+                    selectedAnswers?.agricultureUse_borewell_installLocation
+                      ? 'agricultureUse_borewell_installLocation'
+                      : selectedAnswers?.agricultureUse_openwell_installLocation
+                      ? 'agricultureUse_openwell_installLocation'
+                      : selectedAnswers?.commercialUse_borewell_installLocation
+                      ? 'commercialUse_borewell_installLocation'
+                      : selectedAnswers?.commercialUse_openwell_installLocation
+                      ? 'commercialUse_openwell_installLocation'
+                      : selectedAnswers?.domesticUse_openwell_installLocation
+                      ? 'domesticUse_openwell_installLocation'
+                      : selectedAnswers?.domesticUse_borewell_installLocation // Added this line
+                      ? 'domesticUse_borewell_installLocation'
+                      : null
+                  )}
+                </span>
+              </li>
+            )}
             {pump.installLocationType && <li><strong>Install Location Type:</strong> <span>{pump.installLocationType.replace(/_/g, ' ')}</span></li>}
             {pump.headMin && <li><strong>Head:</strong> <span>{pump.headMin}-{pump.headMax} M</span></li>}
             {pump.lpmMin && <li><strong>LPM:</strong> <span>{pump.lpmMin}-{pump.lpmMax} L/Min</span></li>}
@@ -89,20 +91,22 @@ function ProductList({ pumps, selectedAnswers }) {
             {pump.pumpTankCapacity && <li><strong>Pump Tank Capacity:</strong> <span>{getFilteredValue(pump.pumpTankCapacity, 'pumpTankCapacity')}</span></li>}
             {/* Phase Display */}
             {pump.phase && (
-              <li>
-                <strong>Phase:</strong>{" "}
-                <span>
-                  {getFilteredValue(
-                    pump.phase,
-                    selectedAnswers?.commercialUse_borewell_submersible_phase || 
-                    selectedAnswers?.commercialUse_borewell_surface_phase || 
-                    selectedAnswers?.agricultureUse_borewell_submersible_powersource ||
-                    'domesticUse_borewell_submersible_phase'
-                  )?.replace(/_/g, ' ')}
-                </span>
-              </li>
-            )}
+                <li>
+                  <strong>Phase:</strong>{" "}
+                  <span>
+                    {getFilteredValue(
+                      pump.phase,
+                      selectedAnswers?.commercialUse_borewell_submersible_phase || 
+                      selectedAnswers?.commercialUse_borewell_surface_phase || 
+                      selectedAnswers?.agricultureUse_borewell_submersible_powersource ||
+                      selectedAnswers?.domesticUse_borewell_surface_phase || 
+                      'domesticUse_borewell_submersible_phase'
+                    )?.replace(/_/g, ' ')}
+                  </span>
+                </li>
+              )}
 
+            {/* Sand or Silt Display */}
             {/* Sand or Silt Display */}
             {pump.sandorsilt && (
               <li>
@@ -112,7 +116,8 @@ function ProductList({ pumps, selectedAnswers }) {
                     pump.sandorsilt, 
                     selectedAnswers?.commercialUse_borewell_submersible_sand_or_silt_1phase ||
                     selectedAnswers?.commercialUse_borewell_submersible_sand_or_silt_3phase ||
-                    'domesticUse_borewell_submersible_sand_or_silt'
+                    selectedAnswers?.domesticUse_borewell_submersible_sand_or_silt_1phase ||
+                    selectedAnswers?.domesticUse_borewell_submersible_sand_or_silt_3phase
                   )?.replace(/_/g, ' ')}
                 </span>
               </li>
@@ -128,12 +133,14 @@ function ProductList({ pumps, selectedAnswers }) {
                       pump.deliverySize
                         ? selectedAnswers?.domesticUse_openwell_submerged_deliverySize
                           ? 'domesticUse_openwell_submerged_deliverySize'
-                          : 'domesticUse_openwell_surface_deliverySize'  
+                          : 'domesticUse_openwell_surface_deliverySize'
                         : selectedAnswers?.commercialUse_borewell_submersible_borewellSize_1phase
                         ? 'commercialUse_borewell_submersible_borewellSize_1phase'
                         : selectedAnswers?.commercialUse_borewell_submersible_borewellSize_3phase
                         ? 'commercialUse_borewell_submersible_borewellSize_3phase'
-                        : 'domesticUse_borewell_submersible_borewellSize'
+                        : selectedAnswers?.domesticUse_borewell_submersible_borewellSize_1phase // Added
+                        ? 'domesticUse_borewell_submersible_borewellSize_1phase'
+                        : 'domesticUse_borewell_submersible_borewellSize_3phase' // Added
                     )}
                   </span>
                 </li>

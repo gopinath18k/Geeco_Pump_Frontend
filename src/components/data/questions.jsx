@@ -198,7 +198,7 @@ export const pumpSelectionQuestions = [
 // --- Surface Borewell Single Phase Questions ---
 
 {
-  id: 'domesticUse_borewell_surface_depth',
+  id: 'domesticUse_borewell_surface_depth_1phase',
   question: 'What is the total depth you want to draw water from the borewell? (in meters)',
   section: 'domesticUse_borewell_surface_1phase',
   type: 'input',
@@ -208,7 +208,7 @@ export const pumpSelectionQuestions = [
 },
 
 {
-  id: 'domesticUse_borewell_surface_head',
+  id: 'domesticUse_borewell_surface_head_1phase',
   question: 'What is the total head you want to pump the water in meters?',
   section: 'domesticUse_borewell_surface_1phase',
   type: 'input',
@@ -218,7 +218,7 @@ export const pumpSelectionQuestions = [
 },
 
 {
-  id: 'domesticUse_borewell_surface_discharge',
+  id: 'domesticUse_borewell_surface_discharge_1phase',
   question: 'Any desired LPM? (in liters)',
   section: 'domesticUse_borewell_surface_1phase',
   type: 'input',
@@ -230,7 +230,7 @@ export const pumpSelectionQuestions = [
 // --- Surface Borewell Three Phase Questions ---
 
 {
-  id: 'domesticUse_borewell_surface_depth',
+  id: 'domesticUse_borewell_surface_depth_3phase',
   question: 'What is the total depth you want to draw water from the borewell? (in meters)',
   section: 'domesticUse_borewell_surface_3phase',
   type: 'input',
@@ -240,7 +240,7 @@ export const pumpSelectionQuestions = [
 },
 
 {
-  id: 'domesticUse_borewell_surface_head',
+  id: 'domesticUse_borewell_surface_head_3phase',
   question: 'What is the total head you want to pump the water in meters?',
   section: 'domesticUse_borewell_surface_3phase',
   type: 'input',
@@ -250,7 +250,7 @@ export const pumpSelectionQuestions = [
 },
 
 {
-  id: 'domesticUse_borewell_surface_discharge',
+  id: 'domesticUse_borewell_surface_discharge_3phase',
   question: 'Any desired LPM? (in liters)',
   section: 'domesticUse_borewell_surface_3phase',
   type: 'input',
@@ -274,7 +274,7 @@ export const pumpSelectionQuestions = [
 // --- Submersible Borewell Single Phase Questions ---
 
 {
-    id: 'domesticUse_borewell_submersible_borewellSize',
+    id: 'domesticUse_borewell_submersible_borewellSize_1phase',
     question: 'What is the size of your bore well?',
     section: 'domesticUse_borewell_submersible_1phase',
     options: [
@@ -287,7 +287,7 @@ export const pumpSelectionQuestions = [
   },
 
   {
-  id: 'domesticUse_borewell_submersible_sand_or_silt',
+  id: 'domesticUse_borewell_submersible_sand_or_silt_1phase',
   question: 'Is there a significantly high amount of Sand or Silt in your borewell water?',
   section: 'domesticUse_borewell_submersible_1phase',
   options: [
@@ -297,7 +297,7 @@ export const pumpSelectionQuestions = [
 },
 
 {
-  id: 'domesticUse_borewell_submersible_head',
+  id: 'domesticUse_borewell_submersible_head_1phase',
   question: 'What is the total head you want to pump the water in meters? ( Total head= Depth of Bore pump installation + height of the over head tank)',
   section: 'domesticUse_borewell_submersible_1phase',
   type: 'input',
@@ -307,7 +307,7 @@ export const pumpSelectionQuestions = [
 },
 
 {
-  id: 'domesticUse_borewell_submersible_discharge',
+  id: 'domesticUse_borewell_submersible_discharge_1phase',
   question: 'Any desired LPM? (in liters)',
   section: 'domesticUse_borewell_submersible_1phase',
   type: 'input',
