@@ -23,6 +23,7 @@ export const pumpSelectionQuestions = [
   },
 
   // --- Sump/Tank branch for Domestic Use ---
+
   {
     id: 'domesticUse_sumpTank_installLocation',
     question: 'Where do you want to install the pump?',
@@ -32,6 +33,7 @@ export const pumpSelectionQuestions = [
       { id: 'submerged_sumpTank', label: 'Submerged in water', nextSection: 'domesticUse_sumpTank_submerged' },
     ],
   },
+
   // --- Surface installation for Sump/Tank ---
   {
     id: 'domesticUse_sumpTank_surface_head',
@@ -130,8 +132,10 @@ export const pumpSelectionQuestions = [
     question: 'Delivery Size',
     section: 'domesticUse_openwell_surface',
     options: [
+      { id: '1 inch', label: '1"' },
       { id: '1.5 inch', label: '1.5"' },
       { id: '2 inch', label: '2"' },
+      { id: '2.5 inch', label: '2.5"' },
       { id: '3 inch', label: '3"' },
     ],
   },
