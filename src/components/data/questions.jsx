@@ -15,7 +15,7 @@ export const pumpSelectionQuestions = [
     question: 'What is the Water Source?',
     section: 'domesticUse', // This question belongs to the 'domesticUse' flow
     options: [
-      { id: 'sumpTank', label: 'Sump/Tank', nextSection: 'domesticUse_sumpTank' },
+      { id: 'SumpTank', label: 'Sump/Tank', nextSection: 'domesticUse_sumpTank' },
       { id: 'Openwell', label: 'Openwell (Well)', nextSection: 'domesticUse_openwell' },
       { id: 'Borewell', label: 'Borewell', nextSection: 'domesticUse_borewell' },
       { id: 'Pressure Boosting Application', label: 'Pressure Boosting Application', nextSection: 'domesticUse_pressure_boosting_application' },
@@ -29,8 +29,8 @@ export const pumpSelectionQuestions = [
     question: 'Where do you want to install the pump?',
     section: 'domesticUse_sumpTank',
     options: [
-      { id: 'surface_sumpTank', label: 'Surface', nextSection: 'domesticUse_sumpTank_surface' },
-      { id: 'submerged_sumpTank', label: 'Submerged in water', nextSection: 'domesticUse_sumpTank_submerged' },
+      { id: 'Surface SumpTank', label: 'Surface', nextSection: 'domesticUse_sumpTank_surface' },
+      { id: 'Submerged SumpTank', label: 'Submerged in water', nextSection: 'domesticUse_sumpTank_submerged' },
     ],
   },
 
@@ -42,7 +42,7 @@ export const pumpSelectionQuestions = [
     type: 'input', 
     unit: 'meters',
     min: 1,
-    max: 50,
+    max: 2520,
   },
   {
     id: 'domesticUse_sumpTank_surface_discharge',
@@ -51,17 +51,20 @@ export const pumpSelectionQuestions = [
     type: 'input',
     unit: 'LPM',
     min: 1,
-    max: 450,
+    max: 1000,
   },
   {
     id: 'domesticUse_sumpTank_surface_deliverySize',
     question: 'Delivery Size',
     section: 'domesticUse_sumpTank_surface',
     options: [
-      { id: '1inch', label: '1"' },
-      { id: '1.5inch', label: '1.5"' },
-      { id: '2inch', label: '2"' },
-      { id: '2.5inch', label: '2.5"' },
+      { id: '1 inch', label: '1"' },
+      { id: '1.25 inch', label: '1.25"' },
+      { id: '1.5 inch', label: '1.5"' },
+      { id: '2 inch', label: '2"' },
+      { id: '2.5 inch', label: '2.5"' },
+      { id: '3 inch', label: '3"' },
+      { id: '4 inch', label: '4"' },
     ],
   },
   // --- Submerged installation for Sump/Tank (similar structure) --- //
@@ -72,7 +75,7 @@ export const pumpSelectionQuestions = [
     type: 'input',
     unit: 'meters',
     min: 1,
-    max: 50,
+    max: 2520,
   },
   {
     id: 'domesticUse_sumpTank_submerged_discharge',
@@ -81,17 +84,20 @@ export const pumpSelectionQuestions = [
     type: 'input',
     unit: 'LPM',
     min: 1,
-    max: 450,
+    max: 1000,
   },
   {
     id: 'domesticUse_sumpTank_submerged_deliverySize',
     question: 'Delivery Size',
     section: 'domesticUse_sumpTank_submerged',
     options: [
-      { id: '1inch_sub', label: '1"' },
-      { id: '1.5inch_sub', label: '1.5"' },
-      { id: '2inch_sub', label: '2"' },
-      { id: '2.5inch_sub', label: '2.5"' },
+      { id: '1 inch', label: '1"' },
+      { id: '1.25 inch', label: '1.25"' },
+      { id: '1.5 inch', label: '1.5"' },
+      { id: '2 inch', label: '2"' },
+      { id: '2.5 inch', label: '2.5"' },
+      { id: '3 inch', label: '3"' },
+      { id: '4 inch', label: '4"' },
     ],
   },
 
@@ -849,7 +855,7 @@ export const pumpSelectionQuestions = [
     question: 'What is the Water Source?',
     section: 'commercialUse_General water pumping', 
     options: [
-      { id: 'sumpTank', label: 'Sump/Tank', nextSection: 'commercialUse_sumpTank' },
+      { id: 'SumpTank', label: 'Sump/Tank', nextSection: 'commercialUse_sumpTank' },
       { id: 'Openwell', label: 'Openwell', nextSection: 'commercialUse_openwell' },
       { id: 'Borewell', label: 'Borewell', nextSection: 'commercialUse_borewell' },
     ],
@@ -861,8 +867,8 @@ export const pumpSelectionQuestions = [
     question: 'Where do you want to install the pump?',
     section: 'commercialUse_sumpTank',
     options: [
-      { id: 'surface_sumpTank', label: 'Surface', nextSection: 'commercialUse_sumpTank_surface' },
-      { id: 'submerged_sumpTank', label: 'Submerged in water', nextSection: 'commercialUse_sumpTank_submerged' },
+      { id: 'Surface SumpTank', label: 'Surface', nextSection: 'commercialUse_sumpTank_surface' },
+      { id: 'Submerged SumpTank', label: 'Submerged in water', nextSection: 'commercialUse_sumpTank_submerged' },
     ],
   },
   // --- Surface installation for Sump/Tank ---
@@ -889,10 +895,10 @@ export const pumpSelectionQuestions = [
     question: 'Delivery Size',
     section: 'commercialUse_sumpTank_surface',
     options: [
-      { id: '1inch', label: '1"' },
-      { id: '1.5inch', label: '1.5"' },
-      { id: '2inch', label: '2"' },
-      { id: '2.5inch', label: '2.5"' },
+      { id: '1 inch', label: '1"' },
+      { id: '1.5 inch', label: '1.5"' },
+      { id: '2 inch', label: '2"' },
+      { id: '2.5 inch', label: '2.5"' },
     ],
   },
   // --- Submerged installation for Sump/Tank  --- //
@@ -919,10 +925,10 @@ export const pumpSelectionQuestions = [
     question: 'Delivery Size',
     section: 'commercialUse_sumpTank_submerged',
     options: [
-      { id: '1inch_sub', label: '1"' },
-      { id: '1.5inch_sub', label: '1.5"' },
-      { id: '2inch_sub', label: '2"' },
-      { id: '2.5inch_sub', label: '2.5"' },
+      { id: '1 inch', label: '1"' },
+      { id: '1.5 inch', label: '1.5"' },
+      { id: '2 inch', label: '2"' },
+      { id: '2.5 inch', label: '2.5"' },
     ],
   },
 

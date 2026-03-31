@@ -51,33 +51,119 @@ function PumpSelectionTool() {
 
     // Domestic Question SumpTank surface//
 
-    if (answers.domesticUse_sumpTank_installLocation) {
-      tempPumps = tempPumps.filter(pump => pump.installLocation === answers.domesticUse_sumpTank_installLocation);
+    
+
+    if (answers.domesticUse_sumpTank_installLocation === 'Surface SumpTank') {
+
+      
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.installLocation)) {
+          return pump.installLocation.includes('Surface SumpTank');
+        }
+        return pump.installLocation === 'Surface SumpTank';
+      });
+
+     
+
+      if (answers.domesticUse_sumpTank_surface_head) {
+        const headValue = parseInt(answers.domesticUse_sumpTank_surface_head);
+        tempPumps = tempPumps.filter(
+          pump => headValue >= pump.headMin && headValue <= pump.headMax
+        );
+      }
+
+      if (answers.domesticUse_sumpTank_surface_discharge) {
+        const dischargeValue = parseInt(answers.domesticUse_sumpTank_surface_discharge);
+        tempPumps = tempPumps.filter(
+          pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+        );
+      }
+
+      
+
+        if (answers.domesticUse_sumpTank_surface_deliverySize) {
+      tempPumps = tempPumps.filter(pump => {
+        const selectedSize = answers.domesticUse_sumpTank_surface_deliverySize;
+
+    
+        if (pump.deliverySize) {
+          if (Array.isArray(pump.deliverySize)) {
+            if (pump.deliverySize.includes(selectedSize)) return true;
+          } else {
+            if (pump.deliverySize === selectedSize) return true;
+          }
+        }
+
+        
+        if (pump.borewellSize) {
+          if (Array.isArray(pump.borewellSize)) {
+            if (pump.borewellSize.includes(selectedSize)) return true;
+          } else {
+            if (pump.borewellSize === selectedSize) return true;
+          }
+        }
+
+        
+        return false;
+      });
     }
-    if (answers.domesticUse_sumpTank_surface_head) {
-      const headValue = parseInt(answers.domesticUse_sumpTank_surface_head);
-      tempPumps = tempPumps.filter(pump => headValue >= pump.headMin && headValue <= pump.headMax);
-    }
-    if (answers.domesticUse_sumpTank_surface_discharge) {
-      const dischargeValue = parseInt(answers.domesticUse_sumpTank_surface_discharge);
-      tempPumps = tempPumps.filter(pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax);
-    }
-    if (answers.domesticUse_sumpTank_surface_deliverySize) {
-      tempPumps = tempPumps.filter(pump => pump.deliverySize.includes(answers.domesticUse_sumpTank_surface_deliverySize));
     }
 
     // Domestic Question SumpTank submerged//
 
-    if (answers.domesticUse_sumpTank_submerged_head) {
-      const headValue = parseInt(answers.domesticUse_sumpTank_submerged_head);
-      tempPumps = tempPumps.filter(pump => headValue >= pump.headMin && headValue <= pump.headMax);
+
+    if (answers.domesticUse_sumpTank_installLocation === 'Submerged SumpTank') {
+
+      
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.installLocation)) {
+          return pump.installLocation.includes('Submerged SumpTank');
+        }
+        return pump.installLocation === 'Submerged SumpTank';
+      });
+
+     
+
+      if (answers.domesticUse_sumpTank_submerged_head) {
+        const headValue = parseInt(answers.domesticUse_sumpTank_submerged_head);
+        tempPumps = tempPumps.filter(
+          pump => headValue >= pump.headMin && headValue <= pump.headMax
+        );
+      }
+
+      if (answers.domesticUse_sumpTank_submerged_discharge) {
+        const dischargeValue = parseInt(answers.domesticUse_sumpTank_submerged_discharge);
+        tempPumps = tempPumps.filter(
+          pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+        );
+      }
+
+      if (answers.domesticUse_sumpTank_submerged_deliverySize) {
+      tempPumps = tempPumps.filter(pump => {
+        const selectedSize = answers.domesticUse_sumpTank_submerged_deliverySize;
+
+    
+        if (pump.deliverySize) {
+          if (Array.isArray(pump.deliverySize)) {
+            if (pump.deliverySize.includes(selectedSize)) return true;
+          } else {
+            if (pump.deliverySize === selectedSize) return true;
+          }
+        }
+
+        
+        if (pump.borewellSize) {
+          if (Array.isArray(pump.borewellSize)) {
+            if (pump.borewellSize.includes(selectedSize)) return true;
+          } else {
+            if (pump.borewellSize === selectedSize) return true;
+          }
+        }
+
+        
+        return false;
+      });
     }
-    if (answers.domesticUse_sumpTank_submerged_discharge) {
-      const dischargeValue = parseInt(answers.domesticUse_sumpTank_submerged_discharge);
-      tempPumps = tempPumps.filter(pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax);
-    }
-    if (answers.domesticUse_sumpTank_submerged_deliverySize) {
-      tempPumps = tempPumps.filter(pump => pump.deliverySize.includes(answers.domesticUse_sumpTank_submerged_deliverySize));
     }
 
     // Domestic Question Openwell surface//
@@ -541,8 +627,7 @@ function PumpSelectionTool() {
 
     // -------------- Commercial / Industrial Pump Question ---------------- //
 
-    // Commercial / Industrial Question SumpTank submerged//
-
+    
 
     if (answers.commercialUse_mainPurpose) {
       tempPumps = tempPumps.filter(pump => pump.mainPurpose === answers.commercialUse_mainPurpose);
@@ -555,38 +640,88 @@ function PumpSelectionTool() {
         return pump.waterSource === answers.commercialUse_waterSource;
       });
     }
-    if (answers.commercialUse_sumpTank_installLocation) {
-      tempPumps = tempPumps.filter(
-        pump => pump.installLocation === answers.commercialUse_sumpTank_installLocation
-      );
-    }
-    if (answers.commercialUse_sumpTank_surface_head) {
-      const headValue = parseInt(answers.commercialUse_sumpTank_surface_head);
-      tempPumps = tempPumps.filter(pump => headValue >= pump.headMin && headValue <= pump.headMax);
-    }
-    if (answers.commercialUse_sumpTank_surface_discharge) {
-      const dischargeValue = parseInt(answers.commercialUse_sumpTank_surface_discharge);
-      tempPumps = tempPumps.filter(pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax);
-    }
-    if (answers.commercialUse_sumpTank_surface_deliverySize) {
-      tempPumps = tempPumps.filter(pump => pump.deliverySize.includes(answers.commercialUse_sumpTank_surface_deliverySize));
+
+    // Commercial / Industrial Question SumpTank Surface//
+
+
+     if (answers.commercialUse_sumpTank_installLocation === 'Surface SumpTank') {
+
+      
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.installLocation)) {
+          return pump.installLocation.includes('Surface SumpTank');
+        }
+        return pump.installLocation === 'Surface SumpTank';
+      });
+
+     
+
+      if (answers.commercialUse_sumpTank_surface_head) {
+        const headValue = parseInt(answers.commercialUse_sumpTank_surface_head);
+        tempPumps = tempPumps.filter(
+          pump => headValue >= pump.headMin && headValue <= pump.headMax
+        );
+      }
+
+      if (answers.commercialUse_sumpTank_surface_discharge) {
+        const dischargeValue = parseInt(answers.commercialUse_sumpTank_surface_discharge);
+        tempPumps = tempPumps.filter(
+          pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+        );
+      }
+
+      if (answers.commercialUse_sumpTank_surface_deliverySize) {
+          tempPumps = tempPumps.filter(pump => {
+            if (!pump.deliverySize) return false;  
+            if (Array.isArray(pump.deliverySize)) {
+              return pump.deliverySize.includes(answers.commercialUse_sumpTank_surface_deliverySize);
+            }
+            return pump.deliverySize === answers.commercialUse_sumpTank_surface_deliverySize;  
+          });
+        }
     }
 
 
     // Commercial / Industrial Question SumpTank submerged//
 
-    if (answers.commercialUse_sumpTank_submerged_head) {
-      const headValue = parseInt(answers.commercialUse_sumpTank_submerged_head);
-      tempPumps = tempPumps.filter(pump => headValue >= pump.headMin && headValue <= pump.headMax);
-    }
-    if (answers.commercialUse_sumpTank_submerged_discharge) {
-      const dischargeValue = parseInt(answers.commercialUse_sumpTank_submerged_discharge);
-      tempPumps = tempPumps.filter(pump => dischargeValue >= pump.dischargeMin && dischargeValue <= pump.dischargeMax);
-    }
-    if (answers.commercialUse_sumpTank_submerged_deliverySize) {
-      tempPumps = tempPumps.filter(pump => pump.deliverySize.includes(answers.commercialUse_sumpTank_submerged_deliverySize));
+    if (answers.commercialUse_sumpTank_installLocation === 'Submerged SumpTank') {
+
+      
+      tempPumps = tempPumps.filter(pump => {
+        if (Array.isArray(pump.installLocation)) {
+          return pump.installLocation.includes('Submerged SumpTank');
+        }
+        return pump.installLocation === 'Submerged SumpTank';
+      });
+
+     
+
+      if (answers.commercialUse_sumpTank_submerged_head) {
+        const headValue = parseInt(answers.commercialUse_sumpTank_submerged_head);
+        tempPumps = tempPumps.filter(
+          pump => headValue >= pump.headMin && headValue <= pump.headMax
+        );
+      }
+
+      if (answers.commercialUse_sumpTank_submerged_discharge) {
+        const dischargeValue = parseInt(answers.commercialUse_sumpTank_submerged_discharge);
+        tempPumps = tempPumps.filter(
+          pump => dischargeValue >= pump.lpmMin && dischargeValue <= pump.lpmMax
+        );
+      }
+
+      if (answers.commercialUse_sumpTank_submerged_deliverySize) {
+          tempPumps = tempPumps.filter(pump => {
+            if (!pump.deliverySize) return false;  
+            if (Array.isArray(pump.deliverySize)) {
+              return pump.deliverySize.includes(answers.commercialUse_sumpTank_submerged_deliverySize);
+            }
+            return pump.deliverySize === answers.commercialUse_sumpTank_submerged_deliverySize;  
+          });
+        }
     }
 
+    
 
       // Commercial / Industrial Question Openwell surface //
 

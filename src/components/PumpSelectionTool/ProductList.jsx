@@ -72,10 +72,14 @@ function ProductList({ pumps, selectedAnswers }) {
                       ? 'commercialUse_borewell_installLocation'
                       : selectedAnswers?.commercialUse_openwell_installLocation
                       ? 'commercialUse_openwell_installLocation'
+                      : selectedAnswers?.commercialUse_sumpTank_installLocation
+                      ? 'commercialUse_sumpTank_installLocation'
                       : selectedAnswers?.domesticUse_openwell_installLocation
                       ? 'domesticUse_openwell_installLocation'
-                      : selectedAnswers?.domesticUse_borewell_installLocation // Added this line
+                      : selectedAnswers?.domesticUse_borewell_installLocation
                       ? 'domesticUse_borewell_installLocation'
+                      : selectedAnswers?.domesticUse_sumpTank_installLocation
+                      ? 'domesticUse_sumpTank_installLocation'
                       : null
                   )}
                 </span>
@@ -106,7 +110,7 @@ function ProductList({ pumps, selectedAnswers }) {
                 </li>
               )}
 
-            {/* Sand or Silt Display */}
+            
             {/* Sand or Silt Display */}
             {pump.sandorsilt && (
               <li>
@@ -133,19 +137,28 @@ function ProductList({ pumps, selectedAnswers }) {
                       pump.deliverySize
                         ? selectedAnswers?.domesticUse_openwell_submerged_deliverySize
                           ? 'domesticUse_openwell_submerged_deliverySize'
+                          : selectedAnswers?.domesticUse_openwell_surface_deliverySize
+                          ? 'domesticUse_openwell_surface_deliverySize'
+                          : selectedAnswers?.domesticUse_sumpTank_surface_deliverySize
+                          ? 'domesticUse_sumpTank_surface_deliverySize'
+                          : selectedAnswers?.domesticUse_sumpTank_submerged_deliverySize
+                          ? 'domesticUse_sumpTank_submerged_deliverySize'
+                          : selectedAnswers?.commercialUse_sumpTank_surface_deliverySize
+                          ? 'commercialUse_sumpTank_surface_deliverySize'
+                          : selectedAnswers?.commercialUse_sumpTank_submerged_deliverySize
+                          ? 'commercialUse_sumpTank_submerged_deliverySize'
                           : 'domesticUse_openwell_surface_deliverySize'
                         : selectedAnswers?.commercialUse_borewell_submersible_borewellSize_1phase
                         ? 'commercialUse_borewell_submersible_borewellSize_1phase'
                         : selectedAnswers?.commercialUse_borewell_submersible_borewellSize_3phase
                         ? 'commercialUse_borewell_submersible_borewellSize_3phase'
-                        : selectedAnswers?.domesticUse_borewell_submersible_borewellSize_1phase // Added
+                        : selectedAnswers?.domesticUse_borewell_submersible_borewellSize_1phase
                         ? 'domesticUse_borewell_submersible_borewellSize_1phase'
-                        : 'domesticUse_borewell_submersible_borewellSize_3phase' // Added
+                        : 'domesticUse_borewell_submersible_borewellSize_3phase'
                     )}
                   </span>
                 </li>
               )}
-
             {/* Add more pump specific details here */}
           </ul>
 
