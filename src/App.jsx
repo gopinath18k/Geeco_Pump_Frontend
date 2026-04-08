@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ChatbotWidget from "./components/Chatbot/ChatbotWidget";
 import { Allpumps } from "./components/AllPumps/Allpumps";
 import { Contactus } from "./components/Contactus/Contactus";
 import { Home } from "./components/Home/Home";
@@ -152,6 +153,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar/>
+      <ChatbotWidget />
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/contact-us' element={<Contactus/>}></Route>
