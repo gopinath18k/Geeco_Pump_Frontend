@@ -62,7 +62,7 @@ export const Home = () => {
 
       <div className="home-section-three-container">
         <div className="home-section-three-inner-container">
-          <h2>Sectors we serves</h2>
+          <h2>Sectors we serve</h2>
              <Cardslider/>
         </div>
        <div className="video-container">
