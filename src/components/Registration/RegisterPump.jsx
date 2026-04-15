@@ -9,7 +9,8 @@ export const RegisterPump = () => {
   const [invoiceDate, setInvoiceDate] = useState("");
   const [warrantyYear, setWarrantyYear] = useState("");
   const [warrantyExpiry, setWarrantyExpiry] = useState("");
-  const ApiUrl = "http://localhost:8000";
+  const [successMessage, setSuccessMessage] = useState("");
+  const ApiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
   const navigate = useNavigate();
 
@@ -58,13 +59,14 @@ export const RegisterPump = () => {
         }),
       }).then((res) => {
         if (res.ok) {
-          alert("Pump Warranty Added Successfully");
+          setSuccessMessage("Pump Warranty Added Successfully!");
           setPumpName("");
           setPumpModel("");
           setInvoiceNo("");
           setInvoiceDate("");
           setWarrantyYear("");
           setWarrantyExpiry("");
+          setTimeout(() => setSuccessMessage(""), 3000);
         } else {
           alert("Error: Unable to register pump warranty");
         }
@@ -86,6 +88,12 @@ export const RegisterPump = () => {
         Check your pump warranty
       </button>
       <h3 className="RegisterPump__SubHeading">Register Pump</h3>
+
+      {successMessage && (
+        <div className="RegisterPump__success-message">
+          {successMessage}
+        </div>
+      )}
 
       <form className="RegisterPump__form-grid">
         <div className="RegisterPump__form-row">

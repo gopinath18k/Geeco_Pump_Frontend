@@ -1,157 +1,352 @@
-.RegisteredPumps__container {
-  max-width: 850px;
-  margin: 10px auto;
-  padding: 40px;
-  background-color: #ffffff;
-  border-radius: 22px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
-
-.RegisteredPumps__Heading {
-  text-align: center;
-  font-size: 32px;
-  color: #2563eb;
-  font-weight: 700;
-  margin-bottom: 25px;
-  margin-top: 50px;
-}
-
-.RegisteredPumps__list {
-  list-style: none;
+.WP_PageContainer {
+  max-width: 900px;
+  margin: 40px auto;
   padding: 0 20px;
-  margin-top: 20px;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
 }
 
-.RegisteredPumps__list-item {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 20px 24px;
-  margin-bottom: 18px;
+.WP_Header {
+  margin-bottom: 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  transition: box-shadow 0.3s, transform 0.2s;
 }
 
-.RegisteredPumps__list-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+.WP_RegisterBtn {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #003366;
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  margin-top: 10px;
 }
 
-.RegisteredPumps__info {
+.WP_RegisterBtn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.WP_Title {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #003366; /* Dark blue matching image */
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.WP_Subtitle {
+  font-size: 16px;
+  color: #475569;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.WP_SearchWrapper {
+  margin-bottom: 40px;
+}
+
+.WP_SearchContainer {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.WP_SearchIcon {
+  width: 20px;
+  height: 20px;
+  color: #94a3b8;
+  margin-left: 16px;
+  margin-right: 12px;
+}
+
+.WP_SearchInput {
+  flex: 1;
+  border: none;
+  font-size: 16px;
+  color: #0f172a;
+  outline: none;
+  background: transparent;
+}
+
+.WP_SearchInput::placeholder {
+  color: #cbd5e1;
+}
+
+.WP_SearchButton {
+  background-color: #0f4a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.WP_SearchButton:hover {
+  background-color: #0a3360;
+}
+
+.WP_ResultsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.WP_Card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.WP_CardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.WP_CardTags {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.WP_CardBadge {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.WP_BadgeActive {
+  background-color: #cce7f5;
+  color: #0f4a8a;
+}
+
+.WP_BadgeExpired {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.WP_CardStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.WP_CardStatusDot {
+  width: 6px;
+  height: 6px;
+  background-color: #cbd5e1;
+  border-radius: 50%;
+}
+
+.WP_CardStatusText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.WP_CardStatusText span {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.WP_CardStatusText strong {
+  font-size: 12px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.WP_ExpiryBox {
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+}
+
+.WP_ExpiryLabel {
+  font-size: 9px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.WP_ExpiryYear {
+  font-size: 20px;
+  font-weight: 800;
+  color: #003366;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.WP_ExpiryMD {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.WP_PumpTitle {
+  font-size: 26px;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 30px;
+}
+
+.WP_DetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 24px;
+  column-gap: 40px;
+}
+
+.WP_DetailItem {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.RegisteredPumps__info span {
-  font-size: 15px;
-  font-weight: 400;
-  color: #1e293b;
-}
-
-.RegisteredPumps__info b {
-  color: #334155;
-}
-
-.RegisteredPumps__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.RegisteredPumps__btn {
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-/* Action Buttons */
-.RegisteredPumps__edit-btn {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  color: #1e293b;
-}
-.RegisteredPumps__edit-btn:hover {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #fff;
-}
-
-.RegisteredPumps__delete-btn {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: #ffffff;
-}
-.RegisteredPumps__delete-btn:hover {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.35);
-}
-
-.RegisteredPumps__cancel-btn {
-  background: linear-gradient(135deg, #94a3b8, #64748b);
-  color: #ffffff;
-}
-.RegisteredPumps__cancel-btn:hover {
-  background: linear-gradient(135deg, #64748b, #475569);
-}
-
-/* Form Inputs inside Edit Mode */
-.RegisteredPumps__input,
-.RegisteredPumps__select {
-  padding: 10px 12px;
-  font-size: 14px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.RegisteredPumps__search-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.RegisteredPumps__search-input {
-  width: 70%;
-  max-width: 400px;
-  padding: 10px 15px;
-  font-size: 15px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.RegisteredPumps__search-input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
-}
-
-.RegisteredPumps__no-results {
-  text-align: center;
+.WP_DetailLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   color: #64748b;
-  font-size: 16px;
-  margin-top: 20px;
-}
-.RegisterPump__check-Btn {
-  margin-top: 20px;
-  padding: 12px 18px;
-  font-size: 15px;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  background: #475569;
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.RegisterPump__check-Btn:hover {
-  background: #334155;
+.WP_DetailValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+@media (max-width: 768px) {
+  .WP_PageContainer {
+    padding: 0 16px;
+    margin: 24px auto;
+  }
+  
+  .WP_Title {
+    font-size: 34px;
+  }
+
+  .WP_Subtitle {
+    font-size: 15px;
+  }
+
+  .WP_Card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .WP_Header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .WP_Title {
+    font-size: 28px;
+  }
+  
+  .WP_SearchContainer {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .WP_SearchIcon {
+    display: none; /* Hide icon on small screens to save space */
+  }
+  
+  .WP_SearchInput {
+    padding: 8px 12px;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+  }
+  
+  .WP_SearchButton {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .WP_CardHeader {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .WP_CardTags {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .WP_ExpiryBox {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+
+  .WP_ExpiryLabel, .WP_ExpiryYear, .WP_ExpiryMD {
+    margin: 0;
+  }
+
+  .WP_PumpTitle {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  
+  .WP_DetailsGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  .WP_Title {
+    font-size: 25px;
+  }
+
+  .WP_Subtitle {
+    font-size: 14px;
+  }
+
+  .WP_Card {
+    padding: 18px;
+  }
+
+  .WP_DetailLabel {
+    font-size: 9px;
+  }
+
+  .WP_DetailValue {
+    font-size: 14px;
+  }
+
+  .WP_SearchInput {
+    font-size: 14px;
+  }
 }
